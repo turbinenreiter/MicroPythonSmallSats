@@ -1,0 +1,98 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro|Source+Serif+Pro">
+
+<style>
+
+html {
+    width: 100%;
+    text-align: center;
+    background-color: #FAFAFA;
+    color: #212121;
+}
+
+body {
+    text-rendering: optimizeLegibility;
+    font-variant-ligatures: common-ligatures;
+    font-kerning: normal;
+    font-family: 'Source Serif Pro', serif;
+    font-weight: 400;
+    font-size: calc(16px + 0.15vw + 0.15vh);
+    line-height: 1.6;
+    hyphens: auto;
+    margin: 0 auto;
+    text-align: left;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+header {
+    margin-top: 2em;
+    margin-bottom: 3em;
+    border-bottom: 2px solid #424242;
+    max-width: calc(26ch * 2.75);
+}
+
+@media (orientation: landscape) {
+    header {
+        margin-left: 30%;
+        margin-right: 2em;
+    }
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 20%;
+        height: 100%;
+        margin: 0;
+        padding-left: 1em;
+        padding-right: 1em;
+        padding-top: 0em;
+        padding-bottom: 0em;
+        font-size: calc(10px + 0.15vw + 0.15vh);
+        font-weight: 200;
+        background-color: #EEEEEE;
+        color: #616161;
+    }
+    article {
+        margin-left: 30%;
+        margin-right: 2em;
+    }
+}
+
+nav {
+    max-width: calc(26ch * 2.75);
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+article {
+    max-width: calc(26ch * 2.75);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+a {
+    font-family: 'Source Sans Pro', sans-serif;
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    background-color: #BDBDBD;
+}
+
+.sourceCode {
+    background-color: #E0E0E0;
+    font-family: 'Source Code Pro', monospace;
+    padding 1em;
+}
+
+</style>

@@ -1,0 +1,44 @@
+\begin{titlepage}
+
+	% define new geometry for titlepage
+	\newgeometry{left=2.5cm, right=2.5cm, top=1cm, bottom=3cm}
+
+	\begin{table}[ht!]
+		\begin{tabularx}{\linewidth}{XX}
+		\flushleft
+		\includegraphics[height=13mm]{resources/tex/titlepage/images/Logo_LRT_neu_voll_A4.pdf}\\[3pt]
+		{\small
+		Institute of Astronautics\newline
+		\textit{
+		Prof. Prof. h.c. Dr. Dr. h.c.\newline
+		Ulrich Walter}}
+		&
+		\flushright
+		\includegraphics[height=13mm]{resources/tex/titlepage/images/TUM.pdf}
+		\end{tabularx}
+	\end{table}
+	
+	\vspace{30pt}
+	
+	\begin{center}
+	{\fontsize{16}{16}\selectfont\bfseries
+	\thesistype\\[8pt]
+	\mytitle\\[12pt]}
+	{\fontsize{16}{16}\selectfont
+	\thesisnumber\\[8pt]
+	Author:\\[8pt]
+	\theauthor}
+	\end{center}
+	
+	\begin{table}[b!]
+		\begin{tabularx}{\linewidth}{p{4.2cm} X}
+		Supervisor:
+		&
+		\supervisor\newline
+		Institute of Astronautics\newline
+		Technische Universität München
+		\end{tabularx}
+	\end{table}
+
+\end{titlepage}
+\restoregeometry

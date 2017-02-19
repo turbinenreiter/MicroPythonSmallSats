@@ -1,0 +1,73 @@
+% LRT LaTeX main file
+% Do not change the structure of this file, only add necessary includes/subfiles
+%
+% 2016, Martin Losekamm, m.losekamm@tum.de
+
+\documentclass[12pt,a4paper]{book}
+\usepackage{lrt}
+
+% Change title info
+\author{$author$}
+\title{$title$}
+\def\supervisor{$supervisor$}
+\def\thesisnumber{$thesisnumber$}
+\def\thesistype{Master's Thesis}
+\def\matrikel{$matrikel$}
+\date{$date$}
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+$if(listings)$
+\usepackage{listings}
+$endif$
+$if(lhs)$
+\lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
+$endif$
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% define acronyms in defns.tex
+\loadglsentries{resources/tex/acro_defns}
+
+\begin{document}
+\frontmatter
+\pagenumbering{Roman}
+\input{resources/tex/titlepage/titlepage}
+\input{resources/tex/erklaerung}
+\input{resources/tex/acknowledgements}
+
+% Abstract
+\input{resources/tex/abstract/german}
+\input{resources/tex/abstract/english}
+
+$for(include-before)$
+$include-before$
+
+$endfor$
+
+% ToC
+\tableofcontents
+\listoffigures
+\listoftables
+\input{resources/tex/symbols/symbols}
+\input{resources/tex/symbols/abbreviations}
+
+\mainmatter
+
+$body$
+
+\bibliographystyle{IEEEtran}
+\bibliography{$bibliography$}
+
+\backmatter
+
+$for(include-after)$
+$include-after$
+
+$endfor$
+\end{document}
