@@ -69,7 +69,7 @@ Both issues can be addressed by advanced data analysis, but only fixed
 by increasing the sample size.
 
 ![Mean of times spend on each example implementation with standard
-deviation.\\label{fig:bars}](/home/plam/Documents/MOVE/pySmallSat/lang_survey/results/praktikum/results_merged.png){ width=75% }
+deviation.\\label{fig:bars}](../language_survey/results/praktikum/results_merged.png){ width=75% }
 
 Figure \\ref{fig:pixels} shows all results at once and compares the time spent
 on C examples to times spend on Python examples using a color scale. The
@@ -77,7 +77,7 @@ overall green color indicates that Python examples were mostly concluded
 faster than C examples.
 
 ![Relative time spent on each example by each participant per
-language.\\label{fig:pixels}](/home/plam/Documents/MOVE/pySmallSat/lang_survey/results/praktikum/map.png){ width=75% }
+language.\\label{fig:pixels}](../language_survey/results/praktikum/map.png){ width=75% }
 
 In summary, the Programming Language Evaluation shows that Python has its strengths in the usability realm of readability and writability, while reliability has to be improved by using external tools. With the readability criteria being the base for all language traits, Pythons strength there can alleviate weaknesses in other areas.
 
