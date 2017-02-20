@@ -43,11 +43,11 @@ header {
         width: 20%;
         height: 100%;
         margin: 0;
-        padding-left: 1em;
+        padding-left: 0em;
         padding-right: 1em;
         padding-top: 0em;
         padding-bottom: 0em;
-        font-size: calc(10px + 0.15vw + 0.15vh);
+        font-size: 1.45vh;
         font-weight: 200;
         background-color: #EEEEEE;
         color: #616161;
@@ -63,7 +63,8 @@ nav {
 }
 
 nav ul {
-    list-style-type: none;
+    list-style: none;
+    padding-left: 1em;
 }
 
 article {
