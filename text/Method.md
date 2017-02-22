@@ -68,9 +68,3 @@ terms of complexity, error rate and performance. In cases where a
 missing library has to be implemented, the workload of doing so is also
 analyzed. Furthermore, the creation of performance optimized libraries
 for Python which are written in C is explored.
-
-Software metrics
-----------------
-
-cloc
-The tool lizard was used for software metrics [@lizard].

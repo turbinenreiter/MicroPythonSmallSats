@@ -22,7 +22,7 @@ Munich, several novel computing concepts are investigated. Amongst
 others, this includes a fault-tolerant, radiation-robust filesystem
 [@filesystem], autonomous Chip Level debugging [@debugging], dependable
 data storage on miniaturized satellites [@datastorage] and a novel
-communication protocol for miniaturized satellites [@appel]. This paper
+communication protocol for miniaturized satellites [@appel]. This thesis
 will investigate the ongoing research on using MicroPython [@upy] as
 application layer programming language on CubeSats. First, the
 motivation for the research is given in chapter 2. Chapter 3 deals with

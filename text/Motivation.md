@@ -26,7 +26,7 @@ undertaken by an ESA project, motivated by a desire to write the
 high-level application software in a language more suited to the
 application layer, meaning a high-level language like Python. Compared
 to C, Python enables higher productivity, more expressiveness,
-higher-level language constructs and inherent language safety [@ESAupy].
+higher-level language constructs and inherent language safety. Furthermore, for high-level applications the possibility for updating the software easily and with little risk is desired. This can be done by patching in compiled languages like C, where the complete software is recompiled and either a patch, meaning only the differing parts of the compiled software, is deployed or the software is completely replaced by a new version. Patching poses its own set of risks and is therefore avoided when possible. The use of MicroPython would better allow this flexibility. Instead of recompiling the complete software, only a script that controls the lower level functionality has to be changed [@ESAupy].
 
 Python is a language explicitly designed to aid readability. It has the
 potential to address the rising complexity of space software system
@@ -36,3 +36,13 @@ computing. These potential benefits and possibilities call for a
 detailed evaluation designed to find strengths and weaknesses and to
 establish use cases where space system developers can profit from using
 MicroPython.
+
+The goal of this evaluation is to answer the following questions:
+
+* Can MicroPython be used on CubeSats?
+* What are the benefits and drawbacks of using MicroPython on CubeSats?
+
+Derived from those goals there is a methodical question to be ansered:
+
+* How can the fitness of a programming language and its implementation for space application be evaluated?
+

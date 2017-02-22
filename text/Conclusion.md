@@ -1,3 +1,13 @@
+
+Method
+------
+
+Usability
+---------
+
+Benefits and drawbacks
+----------------------
+
 MicroPython enables the use of Python in constrained systems and thereby
 can potentially bring the ease of use of this language to space
 computing. The benefits of using Python in space are tied to its focus
