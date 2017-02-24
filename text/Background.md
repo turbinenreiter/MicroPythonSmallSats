@@ -1,4 +1,5 @@
-## The Python Programming Language and the MicroPython Implementation
+The Python Programming Language and the MicroPython Implementation
+------------------------------------------------------------------
 
 Python is an interpreted, object-oriented, high-level programming
 language with dynamic semantics created by Guido van Rossum. It features
@@ -34,7 +35,8 @@ The ESA project of porting MicroPython to the LEON platform performed by George 
 
 Given the work done by ESA this thesis focuses on an language evaluation under practical conditions, emphasizing the usability of the language and tools.
 
-## Programming Language Evaluation
+Programming Language Evaluation
+-------------------------------
 
 In order to evaluate and compare programming languages, a set of
 criteria is needed by which to judge them. A canonical set of such is
@@ -111,6 +113,8 @@ The following characteristics contribute to a languages readability:
     vector(5, 7, 9) # performs vector addition
     ~~~
 
+    Independent of the quality of a type system, it can be either static or dynamic. A static type system enforces that the type of variable never changes. This is allowed in dynamically typed languages on the cost of control over memory. In a statically typed language, it classically was not possible to add an element to a list without explicitly increasing the size reserved for it in memory. In dynamic languages this size increase is implicit. This is enabled by the languages automatic memory management, for example by a garbage collector. Some modern languages are combining the benefits of a static type system with the benefits of automatic memory management, allowing to easier achieve dynamic data structures while retaining the low memory profile and speed of static types.
+
 * __Syntax Design__  
     The syntax is the form of the elements of a language and the structure in which they form statements. It defines the way the primitives are combined to programs and therefore how the code _looks_, thus having a big influence on readability. An example of a conditional program flow makes clear how syntax visually communicates the logical structure of code.
 
@@ -155,7 +159,7 @@ A languages large number of complex constructs can lead to misuse, as the progra
 Abstraction allows the use of complicated operations while many of the details are ignored. For example, a complex algorithm can be implemented once and then reused in different parts of the code by simply being called with the right arguments. The person who uses the algorithm does not necessarily have to know, or remember, its inner workings.
 
 * __Expressiveness__  
-Expressiveness means the existence of powerful operators that allow for convenient specification of computations. This allows for short programs to have a lot of meaning. The reduced code length benefits maintainability, however expressiveness is related to implicity and explicity. Implicity can shorten a programs source code, but be less readable than the explicit counterpart. This target conflict is further detailed in Section \\ref{sec:LOC} that describes the software metric used to measure code length.
+Expressiveness means the existence of powerful operators that allow for convenient specification of computations. This allows for short programs to have a lot of meaning. The reduced code length benefits maintainability, however expressiveness is related to implicity and explicity. Implicity can shorten a programs source code, but be less readable than the explicit counterpart. This target conflict is further detailed in Section \\ref{sec:metrics} that describes the software metric used to measure code length as well as complexity.
 
 
 ### Reliability
@@ -184,7 +188,8 @@ In MicroPython, this can be addressed by locking the heap, thus disallowing the 
 The programming language evaluation criteria described in the above section allow to assess the general quality and usability of a language. Suitability for specific domains can be deducted by weighing the relative importance of the criteria, but the focus of the method is clearly on evaluating the language, not its fitness for specific tasks.
 The criteria also do not allow to objectively rank languages. While some, like orthogonality can at least be objectively measured, others, like syntax design, can only be subjectively assessed. Even for criteria that can be measured, the optimums are debatable. For example, to increase expressiveness, the number of primitives will be higher, thus reducing the perceived simplicity. The relative importance of the possibly conflicting criteria can only be subjectively defined.
 
-## Project-Based Programming Language Evaluation
+Project-Based Programming Language Evaluation
+---------------------------------------------
 
 Programming language evaluation criteria, like the ones described above, are based solely on characteristics inherent in a language, but the specific needs of a project are not represented. Therefore, in addition to the classic language evaluation, an evaluation specific to the project is needed [@howatt]. Howatt proposed such an evaluation scheme, but it was never expanded beyond a basic description of the idea, which is reproduced in this section.
 
@@ -203,11 +208,12 @@ familiarity however is explicitly not disregarded as decisive factor:
 the benefits of a new language always have to exceed the cost of
 switching.
 
-## Software metrics
+Software metrics \\label{sec:metrics}
+----------------
 
 Software metrics allow to measure and quantify traits of a programs source code. They provide objective and reproducible statistics about code that can help to analyze it in terms of quality, maintainability and complexity. In this work, they are used to compare example implementations of the same functionality in MicroPython and C/C++. However, one has to be careful in drawing conclusions from them. For example when using the number of lines of code to determine a programmers productivity a wrong incentive is given to the programmer. The best work often reduces instead of increases the number of lines of code because shorter, more elegant and less error prone solutions to a problem were found.
 
-### Lines of Code (LOC) \\label{sec:LOC}
+### Lines of Code (LOC)
 
 The simplest code metric is the count of lines of code. In counting lines, ignoring blanks or comments, the size of an implementation can be judged. When comparing two implementations of the same functionality in different languages, their expressiveness can be derived: less LOC solving the same problem indicates a higher expressiveness of the language.
 The simplicity of this metric also means that nuances get lost. A good  example is the anti pattern of magic numbers. Anti patterns are common bad programming practices, the anti pattern of magic numbers describes the occurrences of unexplained values in the code. Consider the following (shortened) C example:
@@ -222,7 +228,7 @@ value = raw_value / 1024;
 The ```1024``` is a magic number, because we don't know what it is. The example can be rewritten to give the value an explicit name. Depending on whether this value would be constant or variable, this can be done in different ways, the one shown below assumes a constant that is hardcoded at compile time.
 
 ~~~{.c}
-#define resolution 1024
+#define RESOLUTION 1024
 
 int raw_value = 0;
 float value = 0;
@@ -236,7 +242,20 @@ The LOC obviously increased by one, but the new solution is more readable and ea
 
 [@halstead]
 
-### Cyclomatic complexity (CCN)
+### Cyclomatic complexity (CC)
 
-[@mccabe]
+Cyclomatic complexity (CC) measures how much decision logic a program contains. It describes how many valid paths through a program exists, which is of special relevance for testing: every possible path has to be tested. These paths are described by a control flow graph. Nodes in this graph describe computational statements, edges represent the transfer of control between nodes. The CC is calculated from the number of nodes $n$, edges $e$ and connected components $p$ as shown in equation \\ref{eq:cc} [@mccabe].
 
+\\begin{equation}
+\\label{eq:cc}
+CC = e - n + 2 * p
+\\end{equation}
+
+The same algorithm implemented in two different programming languages can have a different CC for both:
+* a more expressive language needs less statements, reducing the number of nodes
+* a dynamic language reduces the number of edges because it doesn't need logic to handle different data types
+
+A languages expressiveness is influenced by its number of keywords. More keywords enable it to provide more specialized functionality, eliminating the need to specialize by combining keywords. In this context, more keywords reduce complexity, which directly conflicts with the criterion of language simplicity.
+Like we did in the LOC section before, we again can trace this issue back to the issue of implicity versus explicity and expressiveness. Ultimately, a larger number of specialized keywords decrease complexity by implicity, while a smaller number of more orthogonal keywords increase readability by demanding explicity.
+
+CC allows to judge a programs logical complexity, a comparison across languages can indicate expressiveness. The impact on usability has to be carefully weighed against the other criteria, acknowledging the present target conflicts.
