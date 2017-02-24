@@ -5,6 +5,9 @@
 
 \documentclass[12pt,a4paper]{book}
 \usepackage{lrt}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{$bibliography$}
+
 \setlength{\footskip}{3em}
 
 \widowpenalty10000
@@ -90,13 +93,11 @@ $endfor$
 
 $body$
 
-\backmatter
+\printbibliography
 
-\bibliographystyle{IEEEtran}
-\bibliography{$bibliography$}
+\backmatter
 
 $for(include-after)$
 $include-after$
-
 $endfor$
 \end{document}
