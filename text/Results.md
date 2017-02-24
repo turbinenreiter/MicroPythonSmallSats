@@ -27,9 +27,10 @@ Programming Language Evaluation
 
 * Syntax design  
 
+    With readability as an explicitly stated design goal, the syntax design of Python is crafted to make the language simple to read and understand:
     > Readability counts. [@pyzen]
 
-    With readability as an explicitly stated design goal, the syntax design of Python is crafted to make the language simple to read and understand. The language often reads similar to natural language and is described by many programmers as "executable pseudo-code".
+     The language often reads similar to natural language, English, and is often described as "executable pseudo-code".
 
 ### Writability
 

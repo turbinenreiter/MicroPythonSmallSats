@@ -42,7 +42,7 @@ The first step in the project-based language evaluation is the definition of the
 
 #. The language provides quick and easy means to handle strings.
 
-    The program has to handle parameter updates that come in the form of strings. One example are two-line-elemtens (TLE) which contain orbit information.
+    The program has to handle parameter updates that come in the form of strings. One example are two-line-elements (TLE) which contain orbit information.
 
 #. The language provides quick and easy means to handle C-structs.
 

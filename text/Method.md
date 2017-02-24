@@ -24,9 +24,11 @@ versions of the survey were produced, with the order of the example
 implementations switched. A self assessment of the proficiency in the
 languages is asked beforehand, alongside some demographic data.
 
-The response time and the quality of the answers can be used to compare the two example languages readability. The answers can also surface usability problems, in case common errors are found.
+The participants use a web-based user interface, shown exemplary in Figure \\ref{fig:survey} to complete the survey. The code is hidden until the Start-Button is clicked. This also triggers a timer that measures the time until the Done-Button is clicked after the participant finishes his answer in the textbox.
 
 ![Screenshot of the user interface for the survey. \\label{fig:survey}](resources/figs/survey.png){ width=75% }
+
+The response time and the quality of the answers can be used to compare the two example languages readability. The answers can also surface usability problems, in case common errors are found.
 
 Project-Based Programming Language Evaluation
 ---------------------------------------------
