@@ -316,4 +316,4 @@ Like we did in the LOC section before, we again can trace this issue back to the
 CC allows to judge a programs logical complexity, a comparison across languages can indicate expressiveness. The impact on usability has to be carefully weighed against the other criteria, acknowledging the present target conflicts. There is no direct link between the CC and a languages usability.
 
 
-Looking at the classic software metrics in the context of evaluating programming languages, I find them to be mainly useful in comparing expressiveness. This can be used as an aspect in comparing the languages usability but the target conflict of expressiveness with readability in regard to implicity and explicity has to be acknowledged.
+The classic software metrics were designed to reason about a programs complexity. In the context of evaluating programming languages, rather than programs, I find them to be mainly useful in comparing expressiveness. This can be used as an aspect in comparing the languages usability but the target conflict of expressiveness with readability in regard to implicity and explicity has to be acknowledged.

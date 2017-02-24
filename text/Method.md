@@ -10,7 +10,9 @@ Programming Language Evaluation
 -------------------------------
 
 This evaluation focuses on the classic language evaluation criteria
-described by Sebesta [@sebesta]. While readability can be analyzed by using the evaluation criteria, it can also be tested. To do so, a survey was created to compare the readability of the Python programming language with C.
+described by Sebesta [@sebesta]. First, I look at how Python relates to the different criteria. Where applicable, I compare to other languages, in other cases I use the languages design philosphy [@pyzen] or documentation [@pydoc].
+
+Besides using the evaluation criteria, readability can also be tested. To do so, I created a survey to compare the readability of the Python programming language with C. C was chosen as baseline over C++ due its smaller number of keywords. While both languages are similar, C++ adds functionality that can be overwhelming in a survey setting. The used examples are short and do not extensivly show Pythons object oriented features, but rather the procedural style. This allows the compared examples to be as similar as possible while being different languages, ensuring that the differences are caused by language rather than programming paradigm or style. At the same time the examples can stay true to the languages idiom instead of being forced into an alien style.
 
 The survey consists of nine examples, each with an implementation in
 Python and C. The participants are asked to answer questions regarding
@@ -29,35 +31,19 @@ The response time and the quality of the answers can be used to compare the two 
 Project-Based Programming Language Evaluation
 ---------------------------------------------
 
-The project-based evaluation tries to implement the proposed strategy
-described by Howatt [@howatt]. To do so, a set of criteria originating
-from the needs of the development of the Attitude Determination and
-Control (ADCS) subsystem daemon for the MOVE-II CubeSat is established.
-The ADCS uses magnetometers, gyroscopes and sun sensors to determine the
-CubeSats attitude. Magnetorquers are used to create magnetic fields
-acting against the earths magnetic field, allowing to stabilize the
-satellite and point the antenna towards the ground. The ADCS consists of
-a mainpanel with the main microcontroller, four sidepanels and a
-toppanel. Each panel has a coil to generate the magnetic field, sensors
-and a secondary microcontroller. The mainpanel microcontroller controls
-the other panels and is itself controlled by the Command and Data
-Handling Unit (CDH). The CDH has a microprocessor running a Linux based
-operating system. The ADCS subsystem daemon runs on the CDH and enables
-controlling the functions of the ADCS subsystem by exposing D-bus
-methods. D-bus is an interprocess communication (IPC) system, providing
-a mechanism allowing applications to transfer information and request
-services [@dbus]. These are either called by the on-board control
-program or remotely via the S-band communications link. The
-communication between the ADCS daemon and the ADCS subsystem is done via
-SPI.
+The project-based evaluation tries to implement the proposed strategy described by Howatt [@howatt]. To do so, I established a set of criteria originating from the needs of the development of the Attitude Determination and Control (ADCS) subsystem daemon for the MOVE-II CubeSat.
+
+The ADCS uses magnetometers, gyroscopes and sun sensors to determine the CubeSats attitude. Magnetorquers are used to create magnetic fields acting against the earths magnetic field, allowing to stabilize the satellite and point the antenna towards the ground. The ADCS consists of a mainpanel with the main microcontroller, four sidepanels and a toppanel. Each panel has a coil to generate the magnetic field, sensors and a secondary microcontroller. The mainpanel microcontroller controls the other panels and is itself controlled by the Command and Data Handling Unit (CDH). The CDH has a microprocessor running a Linux based operating system. The ADCS subsystem daemon runs on the CDH and enables controlling the functions of the ADCS subsystem by exposing D-bus methods. D-bus is an interprocess communication (IPC) system, providing a mechanism allowing applications to transfer information and request services [@dbus]. These are either called by the on-board controlprogram or remotely via the S-band communications link. The communication between the ADCS daemon and the ADCS subsystem is done via SPI.
+
+The team working on the ADCS software scored the different languages according to the critera as well as the criteras important. The scoring is relative, not absolut and also sunjective to the team. This subjectivity however is allowed in the case of a _project_ base evaluation: a project not only includes the projects goals, but also the team working on it, the facilities, the timeframe and the whole envrionment in which the project is done. Therefore an evaluation specific to a project also is specific to a team.
 
 Toolchain Analysis
 ------------------
 
-Programming tools can support developers in writing software and help to
-enforce quality standards, especially in complex projects with multiple
-developers. The availability and quality of such tools and resources for
-MicroPython is analyzed.
+Developers use programming tools as support for writing software. Tools can help to enforce styleguides, especially in complex projects with multiple developers, ensure that quality standards are met and facilitate finding and fixing errors through debugging. They can automate important tasks like testing and documentation, which often enables having up-to-date and accurate documentation in the first place.
+
+The availability and quality of such tools and resources for
+MicroPython is analyzed by finding them and testing them in practice.
 
 Example Implementations
 -----------------------
