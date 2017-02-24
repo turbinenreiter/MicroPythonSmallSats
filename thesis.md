@@ -40,8 +40,3 @@ documentclass: scrreprt
 
 <#include "text/Conclusion.md">
 
-\\appendix
-
-# Appendix
-<!--# Appendix {.unnumbered}-->
-<#include "text/Appendix.md">
