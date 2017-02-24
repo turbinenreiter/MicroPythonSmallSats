@@ -30,6 +30,12 @@ PANDOC_TEX_OPTIONS = --template=resources/tex/lrt.tex --biblatex --to latex
 
 %.tex : %.md
 	$(PANDOC) $(PANDOC_OPTIONS) $(PANDOC_TEX_OPTIONS) -o build/$@ build/tempmd
+	cp build/thesis.tex thesis.tex
+	latexmk -f -pdf
+	latexmk -c
+	rm thesis.bbl
+	rm thesis.run.xml
+	rm thesis.tex
 
 # Targets and dependencies
 
