@@ -10,8 +10,9 @@ RM = /bin/rm
 PANDOC = /usr/local/bin/pandoc
 
 PANDOC_OPTIONS = --table-of-contents --number-sections --smart --standalone
-PANDOC_OPTIONS += --highlight-style pygments --normalize --self-contained
+PANDOC_OPTIONS += --listings --normalize --self-contained
 PANDOC_OPTIONS += --filter pandoc-citeproc
+#--highlight-style pygments
 
 PANDOC_HTML_OPTIONS = --include-in-header=resources/html/thesis.css --template=resources/html/thesis.html --to html5
 PANDOC_PDF_OPTIONS = --template=resources/tex/lrt.tex --to latex

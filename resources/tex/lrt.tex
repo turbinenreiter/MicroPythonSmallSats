@@ -20,6 +20,31 @@ $endfor$
 
 $if(listings)$
 \usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+    basicstyle=\ttfamily,
+    numbers=left,
+    keywordstyle=\color[RGB]{13,71,161}\bfseries,
+    stringstyle=\color[RGB]{0,77,64},
+    commentstyle=\color[RGB]{109,76,65}\itshape,
+    numberstyle=\tiny,
+    stepnumber=1,
+    numbersep=5pt,
+    backgroundcolor=\color[RGB]{245,245,245},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=true,
+    breakautoindent=true,
+    escapeinside={\%*}{*)},
+    linewidth=.8\textwidth,
+    xleftmargin=.1\textwidth,
+    basewidth=0.5em,
+}
 $endif$
 $if(lhs)$
 \lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
