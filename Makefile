@@ -10,7 +10,8 @@ RM = /bin/rm
 PANDOC = /usr/local/bin/pandoc
 
 PANDOC_OPTIONS = --table-of-contents --number-sections --smart --standalone
-PANDOC_OPTIONS += --listings --normalize --self-contained
+PANDOC_OPTIONS += --listings
+PANDOC_OPTIONS += --normalize --self-contained
 PANDOC_OPTIONS += --filter pandoc-citeproc
 #--highlight-style pygments
 

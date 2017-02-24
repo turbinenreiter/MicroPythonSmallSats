@@ -98,8 +98,8 @@ The following characteristics contribute to a languages readability:
 
     The ```for op in [1, 2, 3]``` construct creates a loop in which the variable ```op``` is set to the n-th element of the list on the n-th iteration through the loop. In this context, orthogonality is given when the following conditions are true.
 
-        * the ```list``` that is iterate over is not changed by doing so
-        * the ```for _ in``` construct behaves the same for any data type it is used on, meaning that it does not change its behavior according to it
+    * the ```list``` that is iterated over is not changed by doing so
+    * the ```for _ in``` construct behaves the same for any data type it is used on, meaning that it does not change its behavior according to it
 
     The first condition is true for our example. The second however shows the limits of the concept: iterating over a data type is only sensible when the data type is a congregation of values. Iterating over a single value does not work and is not allowed. This means that while orthogonality as a mathematical concept can be proven or disproven for a programming language, but in the computer science context it is not a binary decision, but a scale.
 
@@ -212,23 +212,23 @@ Software metrics allow to measure and quantify traits of a programs source code.
 The simplest code metric is the count of lines of code. In counting lines, ignoring blanks or comments, the size of an implementation can be judged. When comparing two implementations of the same functionality in different languages, their expressiveness can be derived: less LOC solving the same problem indicates a higher expressiveness of the language.
 The simplicity of this metric also means that nuances get lost. A good  example is the anti pattern of magic numbers. Anti patterns are common bad programming practices, the anti pattern of magic numbers describes the occurrences of unexplained values in the code. Consider the following (shortened) C example:
 
-```{.c}
+~~~{.c}
 int raw_value = 0;
 float value = 0;
 ...
 value = raw_value / 1024;
-```
+~~~
 
 The ```1024``` is a magic number, because we don't know what it is. The example can be rewritten to give the value an explicit name. Depending on whether this value would be constant or variable, this can be done in different ways, the one shown below assumes a constant that is hardcoded at compile time.
 
-```{.c}
+~~~{.c}
 #define resolution 1024
 
 int raw_value = 0;
 float value = 0;
 ...
 value = raw_value / RESOLUTION;
-```
+~~~
 
 The LOC obviously increased by one, but the new solution is more readable and easier to understand. Generally, explicit is more readable than implicit, but implicit is more expressive than explicit.
 
