@@ -307,6 +307,7 @@ CC = e - n + 2 * p
 \\end{equation}
 
 The same algorithm implemented in two different programming languages can have a different CC for both:
+
 * a more expressive language needs less statements, reducing the number of nodes
 * a dynamic language reduces the number of edges because it doesn't need logic to handle different data types
 
