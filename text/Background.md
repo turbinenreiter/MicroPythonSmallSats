@@ -238,9 +238,64 @@ value = raw_value / RESOLUTION;
 
 The LOC obviously increased by one, but the new solution is more readable and easier to understand. Generally, explicit is more readable than implicit, but implicit is more expressive than explicit.
 
-### Halstead complexity (HC)
+### Halstead complexity measures (HCM)
 
-[@halstead]
+Halstead complexity measures (HCM) are properties of a programs implementation calculated from a static analysis of the source code. They can be used to compare the complexity of different implementations, also in different languages, of the same functionality [@halstead].
+
+The analysis is based on a simple counting of certain elements of a code:
+
+* the number of distinct operators $n_1$
+* the number of distinct operands $n_2$
+* the total number of operators $N_1$
+* the total number of operands $N_2$
+
+With these, following measures can be calculated:
+
+* The program vocabulary $n$ describes how many distinct primitives were used:
+\\begin{equation}
+\\label{eq:voc}
+n = n_1 + n_2
+\\end{equation}
+
+* The program length $N$ describes the length as number of total primitives:
+\\begin{equation}
+\\label{eq:len}
+N = N_1 + N_2
+\\end{equation}
+
+* The programs volume $V$:
+\\begin{equation}
+\\label{eq:vol}
+V = N \\cdot log_2 (n)
+\\end{equation}
+
+* The difficulty $D$ of writing the program:
+\\begin{equation}
+\\label{eq:dif}
+D = \\frac{n_1}{2} \\cdot \\frac{N_2}{n_2}
+\\end{equation}
+
+* The effort $E$ that goes into writing the program:
+\\begin{equation}
+\\label{eq:ef}
+E = D \\cdot V
+\\end{equation}
+
+Derived from those measures, the following predictions can be made based on factors that have to be derived from statistics over many large codebases:
+
+* The time $T$ required to write the program:
+\\begin{equation}
+\\label{eq:t}
+T = \\frac{E}{18} s
+\\end{equation}
+
+* The number of bugs $B$ to be expected in the program:
+\\begin{equation}
+\\label{eq:bugs}
+B = \\frac{E^{\\frac{2}{3}}}{3000}
+\\end{equation}
+
+The HCM uses an extremely simplistic code analysis, counting operators and operands, to derive comparable metrics, which can also be used to make predictions based on past experiences. The metrics can be used to compare the complexity of implementations across languages, but due to the simplicity of the method the results do not translate well into a factor of usability. They heavily reflect program length and expressiveness, both of which are not sufficient to judge readability and writability. Furthermore, the predictions that can be made rely on statistics that are neither readily available nor easy to obtain. For this study, I will completely disregard the predictive measures, as it is not possible in the scope of this work to obtain the data needed to find legitimate and reproducible factors for them.
 
 ### Cyclomatic complexity (CC)
 
@@ -258,4 +313,7 @@ The same algorithm implemented in two different programming languages can have a
 A languages expressiveness is influenced by its number of keywords. More keywords enable it to provide more specialized functionality, eliminating the need to specialize by combining keywords. In this context, more keywords reduce complexity, which directly conflicts with the criterion of language simplicity.
 Like we did in the LOC section before, we again can trace this issue back to the issue of implicity versus explicity and expressiveness. Ultimately, a larger number of specialized keywords decrease complexity by implicity, while a smaller number of more orthogonal keywords increase readability by demanding explicity.
 
-CC allows to judge a programs logical complexity, a comparison across languages can indicate expressiveness. The impact on usability has to be carefully weighed against the other criteria, acknowledging the present target conflicts.
+CC allows to judge a programs logical complexity, a comparison across languages can indicate expressiveness. The impact on usability has to be carefully weighed against the other criteria, acknowledging the present target conflicts. There is no direct link between the CC and a languages usability.
+
+
+Looking at the classic software metrics in the context of evaluating programming languages, I find them to be mainly useful in comparing expressiveness. This can be used as an aspect in comparing the languages usability but the target conflict of expressiveness with readability in regard to implicity and explicity has to be acknowledged.
