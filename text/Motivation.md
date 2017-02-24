@@ -2,24 +2,18 @@ Programming languages are tools to solve problems. Different problems
 require different tools and the large number of existing, and also used,
 languages provide ample resource to find one that fits the task at hand.
 
-However, often the choice of language is severely constricted and the
+Still, often the choice of language is severely constricted and the
 choice is not made by project based criteria, but organizational ones.
 The chosen languages are the ones that “have always been used”, that
 “everyone else uses”, that are already “available for the development
 system” or that are required in order to “satisfy contractual
 obligations” [@howatt].
 
-The special requirements for space systems, as well as the conservative
-approach that is common in the industry, result in a very small set of
-languages being actively used in this domain. For expensive and critical
-projects, developers default to proven languages, leaving little room
-for experimentation and thereby progress is slow. This work tries to
-broaden the scope of suitable languages by evaluating the use of
-MicroPython in a CubeSat project. CubeSats are small satellites with
-standardized dimensions that can be launched as secondary payloads on
-bigger missions, thus providing a low cost option of getting a satellite
-in orbit. The low cost make them an ideal platform for pushing new
-technologies in space.
+Only a small set of languages are actively used in the space industry because of the special requirements for space systems and the conservative approach that is common in the industry. Developers default to known and proven languages for expensive and critical projects, leaving little room for experimentation. This approach slows adoption of new languages and tools, which means that there is possibly a lot of untapped potential to improve the developers workflow.
+CubeSats can provide a way of overcoming the limitations the conservative approach poses. The are small, low-cost satellites with standardized dimension, which enables them to be launched as secondary payloads alongside bigger missions. This severely lowers the launch cost and total cost of getting a satellite to orbit. For innovators, CubeSats are an ideal platform to push new technologies and ideas: once proven space ready by a CubeSats mission, a new technology is ready to be adopted in more critical missions.
+
+MicroPython is such a new technology that potentially can be useful for space applications. It is an implementation of the Python programming language designed for constrained systems, like those common in space
+computing. Python is a language explicitly designed to aid readability. It has the potential to address the rising complexity of space software system simply by being easy to use.
 
 First steps towards the use of MicroPython in space have already been
 undertaken by an ESA project, motivated by a desire to write the
@@ -28,21 +22,15 @@ application layer, meaning a high-level language like Python. Compared
 to C, Python enables higher productivity, more expressiveness,
 higher-level language constructs and inherent language safety. Furthermore, for high-level applications the possibility for updating the software easily and with little risk is desired. This can be done by patching in compiled languages like C, where the complete software is recompiled and either a patch, meaning only the differing parts of the compiled software, is deployed or the software is completely replaced by a new version. Patching poses its own set of risks and is therefore avoided when possible. The use of MicroPython would better allow this flexibility. Instead of recompiling the complete software, only a script that controls the lower level functionality has to be changed [@ESAupy].
 
-Python is a language explicitly designed to aid readability. It has the
-potential to address the rising complexity of space software system
-simply by being easy to use. With the novel MicroPython implementation,
-Python can be used on constrained systems, like those common in space
-computing. These potential benefits and possibilities call for a
-detailed evaluation designed to find strengths and weaknesses and to
-establish use cases where space system developers can profit from using
-MicroPython.
+With the novel MicroPython implementation enabling Python to be used on constrained systems, its potential benefits and possibilities call for a
+detailed evaluation. Given ESAs work on the technical aspects of the implementation, I want to focus more on usability and a practical approach embedded within the MOVE-II CubeSat project.
 
 The goal of this evaluation is to answer the following questions:
 
 * Can MicroPython be used on CubeSats?
 * What are the benefits and drawbacks of using MicroPython on CubeSats?
 
-Derived from those goals there is a methodical question to be ansered:
+Derived from those goals there is a methodical question to be answered first:
 
 * How can the fitness of a programming language and its implementation for space application be evaluated?
 
