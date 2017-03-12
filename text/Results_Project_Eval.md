@@ -2,7 +2,7 @@ The first step in the project-based language evaluation is the definition of the
 
 #. The language enables memory safety.
 
-    Memory errors can lead to system crashes, not just of the program itself but also other programs running in parallel.
+    Memory errors can lead to system crashes, not just of the program itself but also of other programs running in parallel.
 
 #. The language enables creation of programs with a small storage footprint.
 
@@ -18,7 +18,7 @@ The first step in the project-based language evaluation is the definition of the
 
 #. The language enables creation of programs that can be updated using small incremental updates.
 
-    The bandwidth to transfer data to the satellite is limited. Smaller updates means shorter transmission times, decreasing the chance of failure as well as the power consumption. Given that transmission windows are short and limited, failed data uploads can lead to delays in operation.
+    The bandwidth to transfer data to the satellite is limited. Smaller updates mean shorter transmission times, decreasing the chance of failure as well as the power consumption. Given that transmission windows are short and limited, failed data uploads can lead to delays in operation.
 
 #. An implementation of the language for the platform in use exists or can be created.
 
@@ -30,11 +30,11 @@ The first step in the project-based language evaluation is the definition of the
 
 #. A library to use SPI on the platform in use exists or can be created.
 
-    The communicates between the CDH and the subsystem hardware happens via SPI. It is used to send commands to the ADCS hardware and receive data from it.
+    The communication between the CDH and the subsystem hardware happens via SPI. It is used to send commands to the ADCS hardware and receive data from it.
 
 #. The language enables quick and easy file system access to read and write files.
 
-    The daemon is responsible to log sensor data to a file. The data has also to be read back periodically to perform health checks by analyzing it. The daemon also has to read configuration parameters from files and update them.
+    The daemon is responsible to log sensor data to a file. The data also has to be read back periodically to perform health checks by analyzing it. The daemon also has to read configuration parameters from files and update them.
 
 #. The language provides quick and easy means to parse data.
 
@@ -48,7 +48,7 @@ The first step in the project-based language evaluation is the definition of the
 
     The program has to read data and send commands to the subsystems by exchanging data in the form of C-structs via SPI.
 
-According to these criteria, MicroPython, Python, C and C++ were compared and the results are shown in Table \\ref{criteria}. While Python shows it strengths in usability, it falls short in efficiency, where C shines. MicroPython may fix those shortcomings, but for a clear statement there is not enough information yet, which is why the comparison of example implementations are needed. MicroPython also comes with its own caveats in the form of missing libraries for D-bus and SPI on the Linux platform. Implementation of the missing parts is possible and relatively straightforward, but may have to be done in C. C++ addresses many of the shortcomings of C and is the clear leader in this comparison.
+According to these criteria, MicroPython, Python, C and C++ were compared and the results are shown in Table \\ref{criteria}. While Python shows its strengths in usability, it falls short in efficiency, where C shines. MicroPython may fix those shortcomings, but for a clear statement there is not enough information yet, which is why the comparison of example implementations are needed. MicroPython also comes with its own caveats in the form of missing libraries for D-bus and SPI on the Linux platform. Implementation of the missing parts is possible and relatively straightforward, but may have to be done in C. C++ addresses many of the shortcomings of C and is the clear leader in this comparison.
 
 Table: Project-based Evaluation Criteria \\label{criteria}
 

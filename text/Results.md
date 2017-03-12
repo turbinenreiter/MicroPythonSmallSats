@@ -4,7 +4,7 @@ Programming Language Evaluation
 ### Readability
 
 * Simplicity  
-    A languages simplicity can not be easliy measured, but certain metrics can be used to judge. The number of keywords, reserved words that have special meaning in a language, can be used to compare a languages size. Table \\ref{tab:kw} shows Python and C on the lower end of the scale with around 30 keywords, while C++ and Java use significantly more. Languages that go way below the 30 keyword range usually are special cases. Smalltalk for example uses just 6 keywords, with noting that compares to an ```if```, ```while``` or numerous others common primitives. Instead these are provided by a standard library.
+    A language's simplicity can not be easily measured, but certain metrics can be used to judge. The number of keywords, reserved words that have special meaning in a language, can be used to compare a language's size. Table \\ref{tab:kw} shows Python and C on the lower end of the scale with around 30 keywords, while C++ and Java use significantly more. Languages that go way below the 30 keyword range usually are special cases. Smalltalk, for example, uses just 6 keywords, with noting that compares to an ```if```, ```while``` or numerous others common primitives. Instead these are provided by a standard library.
 
     Table: Number of reserved keywords \\label{tab:kw}
 
@@ -12,41 +12,39 @@ Programming Language Evaluation
     -------------------- ----------- ---- ---- -------- ------ ------------ -----
      number of keywords   6           25   32   33       50     64           82
 
-    A different metric is feature multiplicity. In the Zen of Python [@pyzen], a set of design principles for the Python language, this is addressed by the statement: "There should be one -- and preferably only one -- obvious way to do it.".
+    A different metric is feature multiplicity. In the Zen of Python, a set of design principles for the Python language, this is addressed by the statement: "There should be one -- and preferably only one -- obvious way to do it" [@pyzen].
+
     Lastly, Python does allow for operator overloading. In combination with the type system this has many benefits, as it allows operators to have specific meaning for specific types, but also can lead to confusion when an operator does not do what the programmer expects it to do. However, this is usually a sign that the wrong type is used or that the implementation of the type is wrong.
 
-    Overall it can be said that simplicity is a strength of Python. It has a small, but not minimalist set of keywords and the design philosophy explicitly states goals that target simplicity:
-
-    > Simple is better than complex. [@pyzen]
+    Overall it can be said that simplicity is a strength of Python. It has a small, but not minimalist set of keywords and the design philosophy explicitly states goals that target simplicity: "Simple is better than complex" [@pyzen].
 
 * Orthogonality  
-    Having a small set of primitives that can combined to form large programs, Python adheres to the basic idea of orthogonality. The aim of preferably having one way to do things drives the language to be orthogonal, however there are limits to the concept. A fully orthogonal language in the mathematical sense for example would not have any datatypes beyond the bit, as any other datatypes can be derived from this atomic type. The practicality of that is debatable.
+    Having a small set of primitives that can be combined to form large programs, Python adheres to the basic idea of orthogonality. The aim of preferably having one way to do things drives the language to be orthogonal, however, there are limits to the concept. A fully orthogonal language in the mathematical sense for example would not have any datatypes beyond the bit, as any other datatypes can be derived from this atomic type. The practicality of that is debatable.
 
 * Data types  
-    Python provides a rich set of built-in data types. The numeric types are ```int```, ```float``` and ```complex```, the sequence types are ```list``` and ```tuple``` as well as the text sequence ```str```. There are binary types, ```bytes``` and ```bytearray``` and a boolean type, ```bool```, as well as a mapping type, ```dict```. Furthermore the object oriented features of Python allow to create classes with which the type system can be expanded.
+    Python provides a rich set of built-in data types. The numeric types are ```int```, ```float``` and ```complex```, the sequence types are ```list``` and ```tuple``` as well as the text sequence ```str```. There are binary types, ```bytes``` and ```bytearray``` and a boolean type, ```bool```, as well as a mapping type, ```dict```. Furthermore the object-oriented features of Python allow to create classes with which the type system can be expanded.
 
 * Syntax design  
 
-    With readability as an explicitly stated design goal, the syntax design of Python is crafted to make the language simple to read and understand:
-    > Readability counts. [@pyzen]
+    With readability as an explicitly stated design goal, the syntax design of Python is crafted to make the language simple to read and understand: "Readability counts" [@pyzen].
 
-     The language often reads similar to natural language, English, and is often described as "executable pseudo-code".
+    By using indentation to delimit code blocks and eschewing the use of semicolons to end statements the language reduces line noise and allows to focus on the code instead.
 
 ### Writability
 
 * Support for abstraction  
-    Python supports abstraction well and allows using the object-oriented programming paradigm. There is no concept of public and private, following the philosophy of abstracting complexity, but not hiding implementation details.
+    Python supports abstraction well and allows using the object-oriented programming paradigm. There is no concept of public and private, following the philosophy of abstracting complexity, but at the same time not hiding implementation details.
 
 * Expressiveness  
-    Expressiveness is a clear strength of Python, empirical studies have found that implementing the same requirements in Python yield significant less lines of code than for example in C [@codecomp].
+    Expressiveness is a clear strength of Python. Empirical studies have found that implementing the same requirements in Python yield significant less lines of code than for example in C [@codecomp].
 
 ### Reliability
 
 * Type checking  
-    Python is dynamically typed and interpreted language and as such type checking is not done by default before the program is run. For example, when a float values is assigned to a variable that was an integer before, it will simply become a float. When an operation is used on a data type that does not support it, an exception raised at runtime when the error is encountered the first time. Type checking can be done manually by using the ```type``` function which returns a variables type, or the exceptions can be handled using the ```try - except``` mechanism. In order to have static type checking, like compiled languages, tools can be used which are described in the toolchain section \\ref{sec:tools}.
+    Python is a dynamically typed and interpreted language and as such, type checking is not done by default before the program is run. For example, when a float values is assigned to a variable that was an integer before, it will simply become a float. When an operation is used on a data type that does not support it, an exception is raised at runtime when the error is encountered for the first time. Type checking can be done manually by using the ```type``` function which returns a variables type, or the exceptions can be handled using the ```try - except``` mechanism. In order to have static type checking, like compiled languages, tools can be used which will be described in the toolchain section \\ref{sec:tools}.
 
 * Exception handling  
-    Python provides sophisticated exception handling via the ```try - except``` mechanism.
+    Python provides sophisticated exception handling via the ```try - except``` mechanism. It allows reacting differently for different exception types and performing clean-up routines before returning via the ```finally``` expression.
 
 * Restricted aliasing  
     Python does not restrict aliasing in any way, so code linting tools as described in the toolchain section \\ref{sec:tools} have to be used.
@@ -60,7 +58,7 @@ results show a pattern worth investigating.
 A bar plot can be seen in Figure \\ref{fig:bars}. The mean times spent on each
 example per language show that the Python examples where generally
 processed quicker. A big standard deviation is present for which two
-reasons are already known: Firstly, the prior knowledge is not yet
+reasons are already known. Firstly, the prior knowledge is not yet
 considered in the analysis. Secondly, the survey participants where not
 told that the time spent on each example is measured, as to not induce
 stress. However, their smartphones were also not taken from them and
@@ -80,7 +78,9 @@ faster than C examples.
 ![Relative time spent on each example by each participant per
 language.\\label{fig:pixels}](../language_survey/results/praktikum/map.png){ width=75% }
 
-In summary, the Programming Language Evaluation shows that Python has its strengths in the usability realm of readability and writability, while reliability has to be improved by using external tools. With the readability criteria being the base for all language traits, Pythons strength there can alleviate weaknesses in other areas.
+\\ \\
+
+In summary, the Programming Language Evaluation shows that Python has its strengths in the usability realm of readability and writability, while reliability has to be improved by using external tools. With the readability criteria being the base for all language traits, Python's strength there can alleviate weaknesses in other areas.
 
 Project-Based Programming Language Evaluation
 ---------------------------------------------
@@ -95,17 +95,9 @@ Toolchain Analysis \\label{sec:tools}
 Example Implementations
 -----------------------
 
-The example implementations were developed using a Raspberry Pi acting
-as CDH and a Pyboard acting as the ADCS subsystem. Figure \\\ref{sys} 
-shows a simplified overview of the system. The UNIX part of the software
-developed on the Raspberry Pi also works on the actual CDH hardware, the
-microcontroller counterpart on the Pyboard however does not run on the
-real ADCS boards. The ADCS subsystem uses ATXMEGA microcontrollers with
-an 8-bit architecture which is not suitable to run MicroPython.
+The example implementations were developed using a Raspberry Pi acting as CDH and a Pyboard acting as the ADCS subsystem. Figure \\\ref{sys}  shows a simplified overview of the system. The UNIX part of the software developed on the Raspberry Pi also works on the actual CDH hardware, the microcontroller counterpart on the Pyboard, however, does not run on the real ADCS boards. The ADCS subsystem uses ATXMEGA microcontrollers with an 8-bit architecture which is not suitable to run MicroPython.
 
-As the ADCS subsystem daemon uses D-Bus and SPI for communication and
-those libraries are not available for the targeted platform, the first
-step is to implemented those.
+As the ADCS subsystem daemon uses D-Bus and SPI for communication and those libraries are not available for the targeted platform, the first step is to implement those.
 
 ![Schematic overview of the system. A Raspberry Pi running Linux an the
 UNIX port of MicroPython is connected to a Pyboard via SPI
@@ -138,19 +130,16 @@ means that two versions of the definition have to be maintained. Any
 differences in the definitions lead to broken data, making this a
 serious source of error for all systems where MicroPython has to
 communicate with C via such data structures. This problem can be
-addressed in two ways: Either by creating a tool that can translate the
+addressed in two ways: either by creating a tool that can translate the
 definitions between the languages or a tool that can automatically test
 the two structures against each other.
 
 In the next step, the D-Bus interface is defined by creating the
-function bodies and register them to the bus. Then the actual
+function bodies and registering them to the bus. Then, the actual
 functionality can be implemented. For this, the SPI library is used to
 transfer the data structures between the CDH and the ADCS subsystem.
 
-In it’s current form the C implementation of the daemon results in a
-binary with a size of 100 kB. The MicroPython implementation depends on
-the MicroPython interpreter, including the D-bus and SPI library, with a
-size of 350 kB in total. The Python code itself is 3 kB in size.
+In its current form the C implementation of the daemon results in a binary with a size of 100 kB. The MicroPython implementation depends on the MicroPython interpreter, including the D-bus and SPI library, with a size of 350 kB in total. The Python code itself is 3 kB in size.
 
 Comparing the length of the implementations, the C version with about
 160 lines of code is significantly longer than the 80 line Python

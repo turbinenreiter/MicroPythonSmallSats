@@ -49,4 +49,8 @@ pre:
 
 clean:
 	- $(RM) -r build
+	latexmk -c
+	rm thesis.bbl
+	rm thesis.run.xml
+	rm thesis.tex
 
