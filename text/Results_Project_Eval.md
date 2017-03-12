@@ -55,18 +55,17 @@ Table: Project-based Evaluation Criteria \\label{criteria}
 ------------------------------------------------------------------------------------------------------------------------------------
 Criterion                                                                             Importance   MicroPython   Python    C    C++
 ------------------------------------------------------------------------------------ ------------ ------------- -------- ----- -----
-The language enables memory safety.                                                       ++           ++          ++     – –    •  
+The language enables memory safety.                                                       ++           ++          ++      –     •  
 
-The language enables creation of programs maintainable by changing developers.            ++           ++          ++      –     •  
+The language enables creation of programs maintainable by changing developers.            ++           ++          ++      •     +  
 
+The language enables splitting tasks between multiple programmers.                        ++           ++          ++      +    ++  
 
-The language enables splitting tasks between multiple programmers.                        ++           ++          ++      –     +  
+The language enables creation of programs with a small storage footprint.                 +             +           –     ++    ++  
 
-The language enables creation of programs with a small storage footprint.                 +             +         – –     ++    ++  
+The language enables creation of programs with a small memory footprint.                  +             +           –     ++    ++  
 
-The language enables creation of programs with a small memory footprint.                  +             +         – –     ++    ++  
-
-The language enables creation of efficient programs.                                      +             +          •      ++    ++  
+The language enables creation of efficient programs.                                      +             +           -     ++    ++  
 
 The language enables creation of programs that can be updated using small diffs.          ++            +          +       +     +  
 
@@ -78,10 +77,10 @@ A library to use SPI on the platform in use exists or can be created.           
 
 The language enables quick and easy file system access to read and write files.           +            ++          ++      +     +  
 
-The language provides quick and easy means to parse data.                                 +            ++          ++      •     •  
+The language provides quick and easy means to parse data.                                 +            ++          ++      •     +  
 
-The language provides quick and easy means to handle strings.                             +            ++          ++      •     •  
+The language provides quick and easy means to handle strings.                             +            ++          ++      •     +  
 
-The language provides quick and easy means to handle C-structs.                           +            ++          ++     ++    ++  
+The language provides quick and easy means to handle C-structs.                           +            +           +      ++    ++  
 ------------------------------------------------------------------------------------------------------------------------------------
 
