@@ -50,37 +50,61 @@ The first step in the project-based language evaluation is the definition of the
 
 According to these criteria, MicroPython, Python, C and C++ were compared and the results are shown in Table \\ref{criteria}. While Python shows its strengths in usability, it falls short in efficiency, where C shines. MicroPython may fix those shortcomings, but for a clear statement there is not enough information yet, which is why the comparison of example implementations are needed. MicroPython also comes with its own caveats in the form of missing libraries for D-bus and SPI on the Linux platform. Implementation of the missing parts is possible and relatively straightforward, but may have to be done in C. C++ addresses many of the shortcomings of C and is the clear leader in this comparison.
 
-Table: Project-based Evaluation Criteria \\label{criteria}
+\\begin{table}[]
+\\centering
+\\caption{Project-based Evaluation Criteria}
+\\label{criteria}
+\\begin{tabular}{@{}p{.5\\textwidth}c|cccc@{}}
+\\toprule
+Criterion                                                                           & Importance & MicroPython & Python & C  & C++ \\\\ \\midrule
+The language enables memory safety.                                                 & ++         & ++          & ++     & -  & •   \\\\
+The language enables creation of programs maintainable by changing developers.      & ++         & ++          & ++     & •  & +   \\\\
+The language enables splitting tasks between multiple programmers.                  & ++         & ++          & ++     & +  & +   \\\\
+The language enables creation of programs with a small storage footprint.           & +          & •           & --     & ++ & ++  \\\\
+The language enables creation of programs with a small memory footprint.            & +          & •           & --     & ++ & ++  \\\\
+The language enables creation of efficient programs.                                & +          & •           & -      & ++ & ++  \\\\
+The language enables creation of programs that can be updated using small diffs.    & ++         & +           & +      & +  & +   \\\\
+An implementation of the language for the platform in use exists or can be created. & ++         & ++          & ++     & ++ & ++  \\\\
+A library to use dbus on the platform in use exists or can be created.              & ++         & •           & ++     & ++ & ++  \\\\
+A library to use SPI on the platform in use exists or can be created.               & ++         & •           & ++     & ++ & ++  \\\\
+The language enables quick and easy file system access to read and write files.     & +          & ++          & ++     & +  & +   \\\\
+The language provides quick and easy means to parse data.                           & +          & ++          & ++     & •  & +   \\\\
+The language provides quick and easy means to handle strings.                       & +          & ++          & ++     & •  & +   \\\\
+The language provides quick and easy means to handle C-structs.                     & +          & +           & +      & ++ & ++  \\\\ \\bottomrule
+\\end{tabular}
+\\end{table}
 
-------------------------------------------------------------------------------------------------------------------------------------
-Criterion                                                                             Importance   MicroPython   Python    C    C++
------------------------------------------------------------------------------------- ------------ ------------- -------- ----- -----
-The language enables memory safety.                                                       ++           ++          ++      –     •  
+<!--Table: Project-based Evaluation Criteria \\\\label{criteria}-->
 
-The language enables creation of programs maintainable by changing developers.            ++           ++          ++      •     +  
+<!---------------------------------------------------------------------------------------------------------------------------------------->
+<!--Criterion                                                                             Importance   MicroPython   Python    C    C++-->
+<!-------------------------------------------------------------------------------------- ------------ ------------- -------- ----- ------->
+<!--The language enables memory safety.                                                       ++           ++          ++      –     •  -->
 
-The language enables splitting tasks between multiple programmers.                        ++           ++          ++      +    ++  
+<!--The language enables creation of programs maintainable by changing developers.            ++           ++          ++      •     +  -->
 
-The language enables creation of programs with a small storage footprint.                 +             +           –     ++    ++  
+<!--The language enables splitting tasks between multiple programmers.                        ++           ++          ++      +    ++  -->
 
-The language enables creation of programs with a small memory footprint.                  +             +           –     ++    ++  
+<!--The language enables creation of programs with a small storage footprint.                 +             +           –     ++    ++  -->
 
-The language enables creation of efficient programs.                                      +             +           -     ++    ++  
+<!--The language enables creation of programs with a small memory footprint.                  +             +           –     ++    ++  -->
 
-The language enables creation of programs that can be updated using small diffs.          ++            +          +       +     +  
+<!--The language enables creation of efficient programs.                                      +             +           -     ++    ++  -->
 
-An implementation of the language for the platform in use exists or can be created.       ++           ++          ++     ++    ++  
+<!--The language enables creation of programs that can be updated using small diffs.          ++            +          +       +     +  -->
 
-A library to use dbus on the platform in use exists or can be created.                    ++            •          ++     ++    ++  
+<!--An implementation of the language for the platform in use exists or can be created.       ++           ++          ++     ++    ++  -->
 
-A library to use SPI on the platform in use exists or can be created.                     ++            •          ++     ++    ++  
+<!--A library to use dbus on the platform in use exists or can be created.                    ++            •          ++     ++    ++  -->
 
-The language enables quick and easy file system access to read and write files.           +            ++          ++      +     +  
+<!--A library to use SPI on the platform in use exists or can be created.                     ++            •          ++     ++    ++  -->
 
-The language provides quick and easy means to parse data.                                 +            ++          ++      •     +  
+<!--The language enables quick and easy file system access to read and write files.           +            ++          ++      +     +  -->
 
-The language provides quick and easy means to handle strings.                             +            ++          ++      •     +  
+<!--The language provides quick and easy means to parse data.                                 +            ++          ++      •     +  -->
 
-The language provides quick and easy means to handle C-structs.                           +            +           +      ++    ++  
-------------------------------------------------------------------------------------------------------------------------------------
+<!--The language provides quick and easy means to handle strings.                             +            ++          ++      •     +  -->
+
+<!--The language provides quick and easy means to handle C-structs.                           +            +           +      ++    ++  -->
+<!---------------------------------------------------------------------------------------------------------------------------------------->
 
