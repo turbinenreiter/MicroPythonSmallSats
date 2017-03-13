@@ -4,11 +4,34 @@ I chose to use this algorithm rather than the one being developed in the scope o
 
 The biggest caveat of this is that the Madgwick algorithm is not space ready: it relies on measuring the earth's gravitational field with the accelerometer, which is not an option in the 0-g environment in space. Nevertheless, the algorithms are similar in what they demand of the platform they run on: perform fast floating point calculation including trigonometry.
 
+Table \\ref{tab:cmc} compares the code metrics of the two implementations.
+
+Table: Code metric comparison \\label{tab:cmc}
+
 Language   LOC   Average LOC per function   CCN   Avg.token
 --------- ----- -------------------------- ----- -----------
 Python     134      43.3                    4.3      569.0
 C          130      62.0                    5.5      935.0
 
-Interestingly, int this case the Python implementation is longer than the C implementation. Because the algorithm was directly translated from C to Python, these functions are almost the same length. The Python version embeds the function within a class, adding a few extra lines for the class definition. A part of this class definition is the ```__init__``` function, which does not exist in the C version. This results in the Python version having 3 functions, where the C version only has 2. The average LOC and token is thereby heavily skewed, especially given that the ```__init__``` function is very short. Removing it drops the average LOC of the Python version to the same 62 lines that the C version has.
-
+Interestingly, in this case the Python implementation is longer than the C implementation. Because the algorithm was directly translated from C to Python, these functions are almost the same length. The Python version embeds the function within a class, adding a few extra lines for the class definition. A part of this class definition is the ```__init__``` function, which does not exist in the C version. This results in the Python version having 3 functions, where the C version only has 2. The average LOC and token number is thereby heavily skewed, especially given that the ```__init__``` function is very short. Removing it drops the average LOC of the Python version to the same 62 lines that the C version has.
+This shows that directly translating C to Python results in code that is equally readable. The resulting Python source is not idiomatic Python and little of the languages benefits come into play.
 Both versions calculate quaternions, however, neither uses a quaternion data type. There is also no vector or matrix data type used, instead all the vector math is unrolled. This approach is terrible for readability but is an optimization for speed. Attitude determination algorithms need to run fast to enable dynamic control of vehicles.
+The originals low readability is result of this seed optimization, the Python version does not improve on it.
+
+Given these circumstances, for this example, the readability comparison is less interesting than a comparison of the implementations' speed, as shown in Table \\ref{tab:speedc}.
+
+Table: Speed comparison \\label{tab:speedc}
+
+Language               Platform   runs     total $s$   average $ms$
+---------------------  --------- -------- ----------- --------------
+C                      i5-5200U  100000   0.023       0.00023
+MicroPython C-module   i5-5200U  100000   0.064       0.00064
+MicroPython            i5-5200U  100000   3.130       0.03130
+MicroPython            STM32F4   1000     1.679       1679
+MicroPython native     STM32F4   1000     1.164       1164
+
+The implementations were tested on an Intel i5 processor and the baseline is set by the C implementation, with an average time for the function to finish of $23~ns$. The MicroPython implementation takes about 135 times longer, which is a massive slowdown. Since MicroPython allows creation of modules in C, this is also compared. The C implementation is made available to MicroPython as a module by adding some simple wrapping and interface functions. This adds a total of 23 lines of code, 14 of which are translations from MicroPython objects to C types and from C types to MicroPython objects.
+The C-module solution still creates a slowdown by a factor of almost 3, but allows to come close to the speed of C while retaining the ease of use of Python.
+
+A different path for speed optimization are MicroPython's ```native``` and ```viper``` code emitters. They can be used by applying function decorators to the function that needs optimizing. The ```native``` emitter works with arbitrary Python code, except generators, and provides a speed up by compiling the function to native assembly code, on the cost of an increased compiled code size. The ```viper``` emitter further applies optimization to the code, but does not work on arbitrary Python code and requires type hints. These emitters are not available on all ports of MicroPython, which is why the ```native``` emitter was tested and compared on the STM32F405 microcontroller platform. The ```viper``` emitter was not tested at all, because it does not work without rewriting the function.
+The speed-up gained by using the ```native``` emitter was about $30~\\%$.
