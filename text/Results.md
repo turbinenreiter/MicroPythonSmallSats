@@ -109,11 +109,7 @@ UNIX port of MicroPython is connected to a Pyboard via SPI
 
 ### ADCS Daemon
 
-Using the MicroPython D-bus and SPI libraries, a re-implementation of
-the ADCS subsystem daemon is possible. Because the original C version of
-this daemon is currently under heavy development and unfinished, a
-stable subset of its functionality was extracted to define a target for
-the re-implementation.
+Using the MicroPython D-bus and SPI libraries, a re-implementation of the ADCS subsystem daemon is possible. Because the original C version of this daemon is currently under heavy development and unfinished, a stable subset of its functionality was extracted to define a target for the re-implementation.
 
 In a first step, the C data structures used in the original daemon are
 recreated in Python. There are two structures:

@@ -23,4 +23,4 @@ Language   LOC   Average LOC per function   CCN   Avg.token
 Python     68        5.5                    1.5       55.8
 C++        276      13.7                    2.8       80.0
 
-
+The Python version of the code is shorter and less complex.
