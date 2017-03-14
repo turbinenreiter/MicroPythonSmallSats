@@ -8,11 +8,11 @@ To overcome the limitations of traditional space programs, CubeSats attempted to
 
 The MOVE-II satellite project [@Langer] of the Technical University of Munich attempts to built such a CubeSat. Within the project, several novel computing concepts are investigated. Among others, this includes a fault-tolerant, radiation-robust filesystem [@filesystem], autonomous Chip Level debugging [@debugging], dependable data storage on miniaturized satellites [@datastorage] and a novel communication protocol for miniaturized satellites [@appel].
 
-![MOVE-II Project Logo\\label{logo}](resources/figs/MOVE-Logo.pdf){ width=25% }
+![MOVE-II Project Logo\\label{logo}](resources/figs/MOVE-Logo.pdf){ width=35% }
 
 MOVE-II is a 1U CubeSat, shown in Figure \\ref{moveii}, which means its outer dimensions are roughly defined by a $10~cm$ cube. It has four side-panels, equipped with solar cells for generating power, which are deployed after the release of the satellite from the launcher by a shape memory alloy mechanism. The scientific payload are experimental solar cells mounted on the top-panel. These cells are tested for degradation under space conditions. For communication, the satellite uses an UHF/VHF system as well as a S-band system, with the corresponding antennas. Magnetorquers acting against the earths magnetic field are used to de-tumble and orient the CubeSat in space.
 
-![MOVE-II Satellite Rendering\\label{moveii}](resources/figs/rendering_move_ii_web.png){ width=25% }
+![MOVE-II Satellite Rendering\\label{moveii}](resources/figs/rendering_move_ii_web.png){ width=35% }
 
 The aim of this work is to evaluate the suitability of MicroPython to program software used in space. This is done by using classic language evaluation as well as practical example implementations and comparisons between languages. The MOVE-II CubeSat project acts as a framework for this evaluation, providing real-world examples and targets.
 
