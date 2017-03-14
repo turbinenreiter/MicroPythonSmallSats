@@ -1,3 +1,5 @@
+This chapters details the background and theoretical foundation of this work. It first describes the Python programming language and the MicroPython implementation that is investigated. Then, existing programming language evaluation strategies are described and their applicability is analyzed. Finally, code metrics that can be used to compare a source codes complexity are introduced.
+
 The Python Programming Language and the MicroPython Implementation
 ------------------------------------------------------------------
 
