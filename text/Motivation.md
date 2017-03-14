@@ -20,6 +20,7 @@ Python       -
 JavaScript   -
 Lua          -
 Rust         -
+C#           -
 
 Because of the special requirements for space systems, and the conservative approach that is common in the space industry, only a small set of languages are actively used. Developers default to known and proven languages for expensive and critical projects, leaving little room for experimentation. This approach slows adoption of new languages and tools, which means that there is possibly a lot of untapped potential to improve the developers' workflow.
 CubeSats can provide a way of overcoming the limitations of this conservative approach. They are small, low-cost satellites with standardized dimensions, which enables them to be launched as secondary payloads alongside bigger missions. This severely lowers the launch cost and total cost of getting a satellite to orbit. For innovators, CubeSats are an ideal platform to push new technologies and ideas. Once proven space-ready by a CubeSats mission, a new technology is ready to be adopted in more critical missions.
