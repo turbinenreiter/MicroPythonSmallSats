@@ -81,23 +81,35 @@
 \fancyhf{}
 \fancyfoot[RO,LE]{Page \thepage}
 \fancyhead[LE]{
-	\begingroup
-	\setlength{\tabcolsep}{0pt}
-	\renewcommand{\arraystretch}{0}
-	\begin{tabularx}{\linewidth}{m{10mm} p{5mm} X}
-		\vspace{6mm}\includegraphics[height=10mm]{resources/tex/titlepage/images/Logo_LRT_neu_outline_A4.pdf} & & \relax\ifvmode\raggedright\fi\nouppercase{\mytitle\hfill\newline\theauthor\hfill}
-	\end{tabularx}
-	\endgroup
-	}
+\renewcommand{\arraystretch}{0}
+    \begin{tabularx}{\linewidth}{X p{5mm} m{10mm}}
+        \raggedright \mytitle  & & \vspace{8mm}\includegraphics[height=10mm]{resources/tex/titlepage/images/Logo_LRT_neu_outline_A4.pdf}\\
+        \raggedright \theauthor & & \\
+    \end{tabularx}
+}
+%	\begingroup
+%	\setlength{\tabcolsep}{0pt}
+%	\renewcommand{\arraystretch}{0}
+%	\begin{tabularx}{\linewidth}{m{10mm} p{5mm} X}
+%		\vspace{6mm}\includegraphics[height=10mm]{resources/tex/titlepage/images/Logo_LRT_neu_outline_A4.pdf} & & \relax\ifvmode\raggedright\fi\nouppercase{\mytitle\hfill\newline\theauthor\hfill}
+%	\end{tabularx}
+%	\endgroup
+%}
 \fancyhead[RO]{
-	\begingroup
-	\setlength{\tabcolsep}{0pt}
-	\renewcommand{\arraystretch}{0}
-	\begin{tabularx}{\linewidth}{X p{5mm} m{10mm}}
-		\relax\ifvmode\raggedleft\fi\nouppercase{\hfill\mytitle\newline\hfill\theauthor} & & \vspace{6mm}\includegraphics[height=10mm]{resources/tex/titlepage/images/Logo_LRT_neu_outline_A4.pdf}
-	\end{tabularx}
-	\endgroup
-	}
+\renewcommand{\arraystretch}{0}
+    \begin{tabularx}{\linewidth}{X p{5mm} m{10mm}}
+        \raggedleft \mytitle  & & \vspace{8mm}\includegraphics[height=10mm]{resources/tex/titlepage/images/Logo_LRT_neu_outline_A4.pdf}\\
+        \raggedleft \theauthor & & \\
+    \end{tabularx}
+}
+%	\begingroup
+%	\setlength{\tabcolsep}{0pt}
+%	\renewcommand{\arraystretch}{0}
+%	\begin{tabularx}{\linewidth}{X p{5mm} m{10mm}}
+%		\relax\ifvmode\raggedleft\fi\nouppercase{\hfill\mytitle\newline\hfill\theauthor} & & \vspace{6mm}\includegraphics[height=10mm]{resources/tex/titlepage/images/Logo_LRT_neu_outline_A4.pdf}
+%	\end{tabularx}
+%	\endgroup
+%}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 }
