@@ -12,6 +12,8 @@ This thesis will add an evaluation of using MicroPython [@upy] as application la
 
 ![MOVE-II Project Logo\\label{logo}](resources/figs/MOVE-Logo.pdf){ width=25% }
 
+MOVE-II is a 1U CubeSat, which means it outer dimensions are roughly $10~cm x 10~cm x 10~cm$. It has four side-panels, equipped with solar cells for generating power, which are deployed after the release of the satellite from the launcher by a shape memory alloy mechanism. The scientific payload are experimental solar cells mounted on the top-panel. These cells are tested for degradation under space conditions. For communication, the satellite uses an UHF/VHF system as well as a S-band system, with the corresponding antennas. To de-tumble and orient the CubeSat in space, magnetorquers acting against the earths magnetic field are used.
+
 ![MOVE-II Satellite Rendering\\label{logo}](resources/figs/rendering_move_ii_web.png){ width=25% }
 
 First, the motivation for the research is given in chapter 2. Chapter 3 deals with the background of Python [@py], programming language evaluation, a project-based evaluation approach and metrics usable to compare code complexity. In Chapter 4, the methods used for evaluation are introduced. Results and first conclusions are later given in Chapter 5. Finally, in Chapter 6, I conclude with the implications of this work for space software development and give an outlook on future steps to incorporate MicroPython in the development work-flow.
