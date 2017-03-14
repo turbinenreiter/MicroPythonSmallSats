@@ -12,7 +12,7 @@ This thesis will add an evaluation of using MicroPython as application layer pro
 
 ![MOVE-II Project Logo\\label{logo}](resources/figs/MOVE-Logo.pdf){ width=25% }
 
-MOVE-II is a 1U CubeSat, shown in Figure \\ref{moveii}, which means it outer dimensions are roughly $10~cm x 10~cm x 10~cm$. It has four side-panels, equipped with solar cells for generating power, which are deployed after the release of the satellite from the launcher by a shape memory alloy mechanism. The scientific payload are experimental solar cells mounted on the top-panel. These cells are tested for degradation under space conditions. For communication, the satellite uses an UHF/VHF system as well as a S-band system, with the corresponding antennas. Magnetorquers acting against the earths magnetic field are used to de-tumble and orient the CubeSat in space.
+MOVE-II is a 1U CubeSat, shown in Figure \\ref{moveii}, which means its outer dimensions are roughly defined by a $10~cm$ cube. It has four side-panels, equipped with solar cells for generating power, which are deployed after the release of the satellite from the launcher by a shape memory alloy mechanism. The scientific payload are experimental solar cells mounted on the top-panel. These cells are tested for degradation under space conditions. For communication, the satellite uses an UHF/VHF system as well as a S-band system, with the corresponding antennas. Magnetorquers acting against the earths magnetic field are used to de-tumble and orient the CubeSat in space.
 
 ![MOVE-II Satellite Rendering\\label{moveii}](resources/figs/rendering_move_ii_web.png){ width=25% }
 
