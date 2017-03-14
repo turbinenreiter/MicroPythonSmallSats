@@ -1,7 +1,7 @@
 ---
 title: Evaluation of MicroPython as Application Layer Programming Language on SmallSats
 author: Sebastian Plamauer
-supervisor: Martin Langer, M.Sc
+supervisor: Dipl.-Ing. (Univ.) Martin Langer
 thesisnumber: RT-MA 2016/14
 matrikel: 3609702
 date: 28.01.2017
