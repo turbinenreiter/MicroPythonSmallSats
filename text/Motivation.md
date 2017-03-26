@@ -1,26 +1,32 @@
 Programming languages are tools to solve problems. Different problems require different tools and the large number of existing, and also used, languages provide ample resources to find one that fits the task at hand.
 
-However, the choice of language is often severely constricted and the choice is not made by project-based criteria, but organizational ones. The chosen languages are the ones that “have always been used”, that “everyone else uses”, that are already “available for the development system” or that are required in order to “satisfy contractual obligations” [@howatt]. For microcontroller platforms, C and C++ often are the only supported languages.
+However, the choice of language is often severely constricted and the choice is not made by project-based criteria, but organizational ones. The chosen languages are the ones that “have always been used”, that “everyone else uses”, that are already “available for the development system” or that are required in order to “satisfy contractual obligations” [@howatt]. For microcontroller platforms, C and C++ often are the only supported languages. Table \\ref{tab:uclang} shows a non-exhaustive list of languages that can be used on microcontrollers.
 
 Table: Programming Language Availability on Microcontrollers \\label{tab:uclang}
 
-language     ARM Cortex-M
------------ --------------
-C            -
-C++          -
-Arduino      -
-Assembly     -
-Haskell      -
-D            -
-Erlang       -
-Ada          -
-TCL          -
-Forth        -
-Python       -
-JavaScript   -
-Lua          -
-Rust         -
-C#           -
+------------------------------------------------------------------------
+language          project            availability     HAL                         character
+----------------- ------------------ ---------------- --------------------------- ------------------------------
+C                 GCC                common           vendor supplied             industry standard
+
+C++               GCC                common           vendor supplied             industry standard
+
+Arduino           Arduino            many             by Arduino project          beginner oriented, widespread
+
+Haskell           haskino            Arduino          via Arduino                 small project
+
+D                 GDC                Cortex-M         none                        experimental
+
+Ada               GNAT               few              few                         usable, commercial compilers available
+
+Rust              LLVM               some             some                        experimental
+
+Python            MicroPython        few              via MicroPython             stable project, good support for few platforms
+
+JavaScript        Espruino           few              via Espruino                stable project, good support for few platforms
+
+Lua               eLua               few              via eLua                    stable project, good support for few platforms
+------------------------------------------------------------------------
 
 Because of the special requirements for space systems, and the conservative approach that is common in the space industry, only a small set of languages are actively used. Developers default to known and proven languages for expensive and critical projects, leaving little room for experimentation. This approach slows adoption of new languages and tools, which means that there is possibly a lot of untapped potential to improve the developers' workflow.
 CubeSats can provide a way of overcoming the limitations of this conservative approach. They are small, low-cost satellites with standardized dimensions, which enables them to be launched as secondary payloads alongside bigger missions. This severely lowers the launch cost and total cost of getting a satellite to orbit. For innovators, CubeSats are an ideal platform to push new technologies and ideas. Once proven space-ready by a CubeSats mission, a new technology is ready to be adopted in more critical missions.
