@@ -97,12 +97,12 @@ CubeSats can provide a way of overcoming the limitations of this conservative ap
 
 \\ \\
 
-Still, for microcontroller platforms commonly used in CubeSats, C and C++ often are the only supported languages. To reasonably use a language on a platform, not only a compiler or interpreter targeting it is needed, but also a HAL, so the microcontrollers peripheral devices can be used. Table \\ref{tab:uclang} shows a non-exhaustive list of languages that can be used on microcontrollers.
+Still, for microcontroller platforms commonly used in CubeSats, C and C++ often are the only supported languages. To reasonably use a language on a platform, not only a compiler or interpreter targeting it is needed, but also a \\gls{hal}, so the microcontrollers peripheral devices can be used. Table \\ref{tab:uclang} shows a non-exhaustive list of languages that can be used on microcontrollers.
 
 Table: Programming Language Availability on Microcontrollers \\label{tab:uclang}
 
 ------------------------------------------------------------------------
-language          project            availability     HAL                         character
+language          project            availability     \\gls{hal}                   character
 ----------------- ------------------ ---------------- --------------------------- ------------------------------
 C                 GCC                common           vendor supplied             industry standard
 
