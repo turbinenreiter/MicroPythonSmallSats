@@ -15,6 +15,69 @@ In this chapter the motivation for this study is detailed by taking a closer loo
 
 ## Rising software complexity and software errors leading to mission failure
 
+In 2009, NASA published a Study on Flight Software Complexity [@Dvorak] to address the risks associated with the growth of size and complexity of flight software for their space missions. It analyzed past missions and found software size to be growing approximately by a factor of 10 every 10 years. More software also means more possible errors. The study estimates a defect rate of $1$ defect per $10,000$ lines of code even for exceptionally good software development processes. With the size of the software for NASA's Orion project approaching 1 million lines of code, this means that there are $100$ to be expected. These defects have to be found during extensive testing and defects that are not identified and fixed can later surface during operation and cause missions to fail.
+
+In fact, software errors have already caused many space missions to go awry. A 2010 study on recent catastrophic accidents [@catastrophic] named six space missions that failed due to faulty software. Table \\ref{tab:mislo} summarizes the missions and the cause for their loss.
+
+Table: Space mission losses due to faulty Software \\label{tab:mislo}
+
+------------------------------------------------------------------
+mission                         cause of failure
+------------------------------- ----------------------------------
+Demonstration of Autonomous     Unintended software resets caused 
+Rendezvous Technology (DART)    fuel depletion and erroneous 
+                                velocity measuremnts. The error 
+                                was known but the fix was not
+                                deployed on the flight model.
+
+Mars Polar Lander               A faulty sensor caused the lander 
+                                to stop its descent engines. The 
+                                software was designed to be fault 
+                                tolerant, but was not implemented 
+                                correctly and not tested in the 
+                                flight configuration.
+
+Mars Climate Orbiter            The orbiter navigated to an orbit 
+                                that was to low and entered Mars' 
+                                atmosphere at an steep angle. The 
+                                navigation error came from the 
+                                software using inconsistent units.
+                                The software was reused and 
+                                adapted from a prior mission and 
+                                some tests were omitted.
+
+Titan IV B-32/Centaur           The launcher's attitude control 
+                                system malfunctioned and caused 
+                                the payload to reach an orbit in 
+                                which it was not usable. The 
+                                software was unable to detect a
+                                human error in data entry and 
+                                created a single point of failure.
+
+Solar and Heliospheric          Contact was lost after a routine 
+Observatory (SOHO)              calibration of the spacecraft's 
+                                gyros. A faulty command sequence 
+                                left the gyros in an unusable 
+                                state.
+
+Ariane 5 – Flight 501           The rocket veered off course and 
+                                was destroyed due to a faulty 
+                                data type conversion. A 64-bit 
+                                float value representing the 
+                                horizontal speed of the rocket 
+                                was cast to a 16-bit integer. 
+                                The value was bigger than such 
+                                a data type could hold and caused 
+                                an overflow. The error was 
+                                located in software that was 
+                                reused from the Aiane 4.
+
+------------------------------------------------------------------
+
+Occurring themes in these missions losses are a lack of testing and errors in adapted software reused from prior missions. As systems grow, testing becomes more and more complex, as the number of possible states increases. Reusing software means saving development cost, but adapting software written by different people still requires understanding of its source code.
+
+The increasing demands on the software by more complex missions drive its growth. The bigger software gets, the harder it is to maintain and test. As there is now slowdown in the rise of complexity to be expected, better ways to manage it are needed.
+
 ## Managing software complexity through higher-level programming languages
 
 ## Using CubeSats to drive adoption of new technologies
