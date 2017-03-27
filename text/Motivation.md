@@ -95,7 +95,7 @@ Although choosing the right language for the task is significant in managing com
 Because of the special requirements for space systems, and the conservative approach that is common in the space industry, only a small set of languages are actively used. Developers default to known and proven languages for expensive and critical projects, leaving little room for experimentation. This approach slows adoption of new languages and tools, which means that there is possibly a lot of untapped potential to improve the developers' workflow.
 CubeSats can provide a way of overcoming the limitations of this conservative approach. They are small, low-cost satellites with standardized dimensions, which enables them to be launched as secondary payloads alongside bigger missions. This severely lowers the launch cost and total cost of getting a satellite to orbit. For innovators, CubeSats are an ideal platform to push new technologies and ideas. Once proven space-ready by a CubeSats mission, a new technology is ready to be adopted in more critical missions.
 
-\\\\~\\\\
+\\ \\
 
 Still, for microcontroller platforms commonly used in CubeSats, C and C++ often are the only supported languages. To reasonably use a language on a platform, not only a compiler or interpreter targeting it is needed, but also a HAL, so the microcontrollers peripheral devices can be used. Table \\ref{tab:uclang} shows a non-exhaustive list of languages that can be used on microcontrollers.
 
