@@ -1,3 +1,24 @@
+The introduction already gave an overview of the motivation that can be condensed to:
+
+* Software complexity is rising.
+* Complexity increases risk of errors.
+* Errors lead to mission failure.
+* Higher-level programming languages can help manage complexity through better usability.
+* Adoption of new methods in the space industry is slow.
+* CubeSats provide a chance to experiment without taking big risks.
+
+Derived from that list, the core idea of this study is:
+
+* Use CubeSats as testbed for new programming languages able to address rising software complexity by increased usability.
+
+In this chapter the motivation for this study is detailed by taking a closer look at the aspects mentioned above.
+
+## Rising software complexity and software errors leading to mission failure
+
+## Managing software complexity through higher-level programming languages
+
+## Using CubeSats to drive adoption of new technologies
+
 Programming languages are tools to solve problems. Different problems require different tools and the large number of existing, and also used, languages provide ample resources to find one that fits the task at hand.
 
 However, the choice of language is often severely constricted and the choice is not made by project-based criteria, but organizational ones. The chosen languages are the ones that “have always been used”, that “everyone else uses”, that are already “available for the development system” or that are required in order to “satisfy contractual obligations” [@howatt]. For microcontroller platforms, C and C++ often are the only supported languages. To reasonably use a language on a platform, not only a compiler or interpreter targeting it is needed, but also a HAL, so the microcontrollers peripheral devices can be used. Table \\ref{tab:uclang} shows a non-exhaustive list of languages that can be used on microcontrollers.
