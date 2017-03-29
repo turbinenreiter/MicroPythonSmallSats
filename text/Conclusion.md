@@ -33,11 +33,9 @@ Outlook
 
 This evaluation shows that usage of MicroPython for space projects is both beneficial and possible. In order to actually make it happen, further steps are needed. The key is to find paths to build the needed familiarity with MicroPython and further progress the project without risking a mission.
 
-One possible area for that is the development of Ground Support Equipment (GSE) and testing tools to start building up know-how immediately.
+One possible area for that is the development of Ground Support Equipment (GSE) and testing tools to start building up know-how immediately. The language can also be used as a rapid prototyping tool during the proof of concept phase for future missions.
 
-The language can also be used as a rapid prototyping tool during the proof of concept phase. 
-
-At last, a test on a CubeSat in orbit, where MicroPython would not act as mission critical infrastructure but as a software scientific payload, can finally prove the concept. In the MOVE-II project, this would be possible via a software update that installs MicroPython on the CubeSat and runs a set of tests. A possible chance to do so arises when the satellite is operational after fulfilling its primary mission.
+At last, a test on a CubeSat in orbit, where MicroPython would not act as mission critical infrastructure but as a software scientific payload, can finally prove the concept. In the MOVE-II project, this would be possible via a software update that installs MicroPython on the CubeSat and runs a set of tests. A possible chance to do so arises when the satellite is still operational after fulfilling its primary mission. This test could happen gradually to ensure it can not have catastrophic impact on the satellite. For example, a version of MicroPython without any access to hardware could be used, by stripping out the machine module providing it. Even file system access can be limited, as well as the maximum size of the heap it can use in memory.
 
 \\ \\
 
