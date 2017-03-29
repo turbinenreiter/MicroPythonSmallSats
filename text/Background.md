@@ -1,4 +1,4 @@
-This chapters details the background and theoretical foundation of this work. It first describes the Python programming language and the MicroPython implementation that is investigated. Then, existing programming language evaluation strategies are described and their applicability is analyzed. Finally, code metrics that can be used to compare a source codes complexity are introduced.
+This chapters details the background and theoretical foundation of this work. It first describes the Python programming language and the MicroPython implementation. Then, existing programming language evaluation strategies are described and their applicability is analyzed. Finally, code metrics that can be used to compare a source codes complexity are introduced.
 
 The Python Programming Language and the MicroPython Implementation
 ------------------------------------------------------------------
@@ -7,17 +7,17 @@ Python is an interpreted, object-oriented, high-level programming language with 
 
 The reference implementation of this language is called CPython. It is an interpreter and itself written in C. Other implementations with different goals exist, for example Jython, written in Java to target the Java virtual machine, or PyPy, written in a subset of Python and aimed at improving performance. MicroPython is an implementation of Python for microcontrollers and constrained systems, created by Damien George. It aims to be lean and efficient and includes only a small subset of the standard library [@upy]. The source code is published under the permissive MIT license.
 
-The CPython interpreter for the UNIX platform has a size of about 4.7 MB, the MicroPython equivalent has 0.5 MB. CPython’s start-up memory usage is approximately 100 kB, MicroPythons is 20 kB. Similarly, in CPython object size is large – a simple integer takes 24 bytes in comparison to 4 bytes for 32-bit architectures in MicroPython. Some of this size savings come from the reduced subset of the Python standard library, which also shows a path for further size reduction. MicroPython can be configured at compile time, making it possible to strip out unused parts to reduce the size. Furthermore, the byte-code compiler and the byte-code virtual machine can be separated, so only the size of the byte-code interpreter is relevant to the system. For space systems, the split of byte-code compiler and byte-code interpreter also reduces the amount of software that has to be flight approved, as only the interpreter would run on the spacecraft.
+The CPython interpreter for the UNIX platform has a size of about 4.7 MB, the MicroPython equivalent has 0.5 MB. CPython’s start-up memory usage is approximately 100 kB, MicroPython’s is 20 kB. Similarly, in CPython object size is large – a simple integer takes 24 bytes in comparison to 4 bytes for 32-bit architectures in MicroPython. Some of this size savings come from the reduced subset of the Python standard library, which also shows a path for further size reduction. MicroPython can be configured at compile time, making it possible to strip out unused parts to reduce the size. Furthermore, the byte-code compiler and the byte-code virtual machine can be separated, so only the size of the byte-code interpreter is relevant to the system. For space systems, the split of byte-code compiler and byte-code interpreter also reduces the amount of software that has to be flight approved, as only the interpreter would run on the spacecraft.
 
 The MicroPython port for microcontroller architectures has an even lower storage and memory footprint: 256 kB of storage and 32 kB of memory are sufficient to run non-trivial programs.
 
-The ESA project of porting MicroPython to the LEON platform performed by George Robotics Ltd. [@ESAupy] has shown that the implementation can run on hardware designed for space. During this project, several improvements were made that further aid the suitability of MicroPython for space applications:
+The \\gls{ESA} project of porting MicroPython to the LEON platform performed by George Robotics Ltd. [@ESAupy] has shown that the implementation can run on hardware designed for space. During this project, several improvements were made that further aid the suitability of MicroPython for space applications:
 
 * the separation of bytecode-compiler and interpreter, including the creation of a MicroPython cross compiler that allows to compile MicroPython code on a developer machine that can be deployed on the target machine
 * optimizations to reduce the use of the dynamic heap memory, allowing to run programs with a locked heap to ensure a program is deterministic
-* integration of MicroPython with RTEMS, a real time operating system used by ESA
+* integration of MicroPython with RTEMS, a \\gls{RTOS} used by \\gls{ESA}
 
-Given the work done by ESA, this thesis focuses on an language evaluation under practical conditions, emphasizing the usability of the language and tools.
+Given the work done by \\gls{ESA}, this thesis focuses on an language evaluation under practical conditions, emphasizing the usability of the language and tools.
 
 Programming Language Evaluation
 -------------------------------
@@ -218,9 +218,9 @@ value = raw_value / RESOLUTION;
 
 The LOC obviously increased by one, but the new solution is more readable and easier to understand. Generally, explicit is more readable than implicit, but implicit is more expressive than explicit.
 
-### Halstead complexity measures (HCM)
+### \\gls{HCM}
 
-Halstead complexity measures (HCM) are properties of a program's implementation calculated from a static analysis of the source code. They can be used to compare the complexity of different implementations, also in different languages, of the same functionality [@halstead].
+\\gls{HCM} are properties of a program's implementation calculated from a static analysis of the source code. They can be used to compare the complexity of different implementations, also in different languages, of the same functionality [@halstead].
 
 The analysis is based on a simple counting of certain elements of a code:
 
@@ -275,18 +275,18 @@ T = \\frac{E}{18} s
 B = \\frac{E^{\\frac{2}{3}}}{3000}
 \\end{equation}
 
-The HCM uses an extremely simplistic code analysis, counting operators and operands, to derive comparable metrics, which can also be used to make predictions based on past experiences. The metrics can be used to compare the complexity of implementations across languages, but due to the simplicity of the method the results do not translate well into a factor of usability. They heavily reflect program length and expressiveness, both of which are not sufficient to judge readability and writability. Furthermore, the predictions that can be made rely on statistics that are neither readily available nor easy to obtain. For this study, I will completely disregard the predictive measures, as it is not possible in the scope of this work to obtain the data needed to find legitimate and reproducible factors for them.
+The \\gls{HCM} uses an extremely simplistic code analysis, counting operators and operands, to derive comparable metrics, which can also be used to make predictions based on past experiences. The metrics can be used to compare the complexity of implementations across languages, but due to the simplicity of the method the results do not translate well into a factor of usability. They heavily reflect program length and expressiveness, both of which are not sufficient to judge readability and writability. Furthermore, the predictions that can be made rely on statistics that are neither readily available nor easy to obtain. For this study, I will completely disregard the predictive measures, as it is not possible in the scope of this work to obtain the data needed to find legitimate and reproducible factors for them.
 
-### Cyclomatic complexity (CC)
+### \\gls{CC}
 
-Cyclomatic complexity (CC) measures how much decision logic a program contains. It describes how many valid paths through a program exist, which is of special relevance for testing: every possible path has to be tested. These paths are described by a control flow graph. Nodes in this graph describe computational statements, edges represent the transfer of control between nodes. The CC is calculated from the number of nodes $n$, edges $e$ and connected components $p$ as shown in equation \\ref{eq:cc} [@mccabe].
+\\gls{CC} measures how much decision logic a program contains. It describes how many valid paths through a program exist, which is of special relevance for testing: every possible path has to be tested. These paths are described by a control flow graph. Nodes in this graph describe computational statements, edges represent the transfer of control between nodes. The \\gls{CC} is calculated from the number of nodes $n$, edges $e$ and connected components $p$ as shown in equation \\ref{eq:cc} [@mccabe].
 
 \\begin{equation}
 \\label{eq:cc}
 CC = e - n + 2 * p
 \\end{equation}
 
-The same algorithm implemented in two different programming languages can have a different CC for both:
+The same algorithm implemented in two different programming languages can have a different \\gls{CC} for both:
 
 * a more expressive language needs less statements, reducing the number of nodes
 * a dynamic language reduces the number of edges because it doesn't need logic to handle different data types
@@ -294,7 +294,7 @@ The same algorithm implemented in two different programming languages can have a
 A language's expressiveness is influenced by its number of keywords. More keywords enable it to provide more specialized functionality, eliminating the need to specialize by combining keywords. In this context, more keywords reduce complexity, which directly conflicts with the criterion of language simplicity.
 Like we did in the LOC section before, we again can trace this issue back to the issue of implicity versus explicity and expressiveness. Ultimately, a larger number of specialized keywords decrease complexity by implicity, while a smaller number of more orthogonal keywords increase readability by demanding explicity.
 
-CC allows to judge a program's logical complexity, a comparison across languages can indicate expressiveness. The impact on usability has to be carefully weighed against the other criteria, acknowledging the present target conflicts. There is no direct link between the CC and a language's usability.
+\\gls{CC} allows to judge a program's logical complexity, a comparison across languages can indicate expressiveness. The impact on usability has to be carefully weighed against the other criteria, acknowledging the present target conflicts. There is no direct link between the \\gls{CC} and a language's usability.
 
 \\ \\
 
