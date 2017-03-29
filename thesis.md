@@ -4,7 +4,7 @@ author: Sebastian Plamauer
 supervisor: Dipl.-Ing. (Univ.) Martin Langer
 thesisnumber: RT-MA 2016/14
 matrikel: 3609702
-date: 28.01.2017
+date: 28.02.2017
 bibliography: resources/bibliography.bib
 link-citations: True
 reference-section-title: Bibliography
