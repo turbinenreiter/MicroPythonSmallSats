@@ -22,7 +22,7 @@ Given these circumstances, for this example, the readability comparison is less 
 
 Table: Speed comparison \\label{tab:speedc}
 
-Language               Platform   runs     total $s$   average $ms$
+Language               Platform      runs  total $s$    average $ms$
 ---------------------  --------- -------- ----------- --------------
 C                      i5-5200U  100000   0.023       0.00023
 MicroPython C-module   i5-5200U  100000   0.064       0.00064
