@@ -15,7 +15,7 @@ In this chapter the motivation for this study is detailed by taking a closer loo
 
 ## Rising software complexity and software errors leading to mission failure
 
-In 2009, NASA published a Study on Flight Software Complexity [@Dvorak] to address the risks associated with the growth of size and complexity of flight software for their space missions. It analyzed past missions and found software size to be growing approximately by a factor of 10 every 10 years. More software also means more possible errors. The study estimates a defect rate of $1$ defect per $10,000$ lines of code even for exceptionally good software development processes. With the size of the software for NASA's Orion project approaching 1 million lines of code, this means that there are $100$ to be expected. These defects have to be found during extensive testing and defects that are not identified and fixed can later surface during operation and cause missions to fail.
+In 2009, NASA published a Study on Flight Software Complexity [@Dvorak] to address the risks associated with the growth of size and complexity of flight software for their space missions. It analyzed past missions and found software size to be growing approximately by a factor of 10 every 10 years. More software also means more possible errors. The study estimates a defect rate of $1$ defect per $10,000$ lines of code even for exceptionally good software development processes. With the size of the software for NASA's Orion project approaching 1 million lines of code, this means that there are $100$ defects to be expected. These defects have to be found during extensive testing and defects that are not identified and fixed can later surface during operation and cause missions to fail.
 
 In fact, software errors have already caused many space missions to go awry. A 2010 study on recent catastrophic accidents [@catastrophic] named six space missions that failed due to faulty software. Table \\ref{tab:mislo} summarizes the missions and the cause for their loss.
 
@@ -97,12 +97,12 @@ CubeSats can provide a way of overcoming the limitations of this conservative ap
 
 \\ \\
 
-Still, for microcontroller platforms commonly used in CubeSats, C and C++ often are the only supported languages. To reasonably use a language on a platform, not only a compiler or interpreter targeting it is needed, but also a \\gls{hal}, so the microcontrollers peripheral devices can be used. Table \\ref{tab:uclang} shows a non-exhaustive list of languages that can be used on microcontrollers.
+In addition to the conservative approach common in space systems, language availability in the field is lacking. For microcontroller platforms and embedded systems commonly used in CubeSats, C and C++ often are the only supported languages. To reasonably use a language on a platform, not only a compiler or interpreter targeting it is needed, but also a \\gls{HAL}, so the microcontrollers peripheral devices can be used. Table \\ref{tab:uclang} shows a non-exhaustive list of languages that can be used on microcontrollers.
 
 Table: Programming Language Availability on Microcontrollers \\label{tab:uclang}
 
 ------------------------------------------------------------------------
-language          project            availability     \\gls{hal}                   character
+language          project            availability     \\gls{HAL}                   character
 ----------------- ------------------ ---------------- --------------------------- ------------------------------
 C                 GCC                common           vendor supplied             industry standard
 
@@ -125,8 +125,8 @@ JavaScript        Espruino           few              via Espruino              
 Lua               eLua               few              via eLua                    stable project, good support for few platforms
 ------------------------------------------------------------------------
 
-On this short list, there is only one family of languages with widespread availability and a usable HAL: C, C++ and Arduino, which is a subset of C++. Some smaller projects achieve good availability by piggybacking on the Arduino ecosystem, but suffer from its beginner oriented limitations. Other languages can target microcontrollers by the virtue of their compiler suites, which provide targets for microcontroller architectures, but often lack a HAL.
-The MicroPython, Espruino and eLua projects represent a different approach. These project implement small interpreters of the respective languages that can run on microcontrollers. They also provide a HAL for the targeted devices. This means that the number of supported platforms is small, but also, that the provided HAL is consistent across the platforms. In doing so, these projects transcend from being language implementations to being frameworks, and even intersecting with real time operating systems (RTOS).
+On this short list, there is only one family of languages with widespread availability and a usable \\gls{HAL}: C, C++ and Arduino, which is a subset of C++. Some smaller projects achieve good availability by piggybacking on the Arduino ecosystem, but suffer from its beginner oriented limitations. Other languages can target microcontrollers by the virtue of their compiler suites, which provide targets for microcontroller architectures, but often lack a \\gls{HAL}.
+The MicroPython, Espruino and eLua projects represent a different approach. These project implement small interpreters of the respective languages that can run on microcontrollers. They also provide a \\gls{HAL} for the targeted devices. This means that the number of supported platforms is small, but also, that the provided \\gls{HAL} is consistent across the platforms. In doing so, these projects transcend from being language implementations to being frameworks, and even intersecting with functionality typically provided by \\glspl{RTOS}.
 
 MicroPython is such a new technology that can potentially be useful for space applications. It is an implementation of the Python programming language designed for constrained systems, like those common in space computing.
 
