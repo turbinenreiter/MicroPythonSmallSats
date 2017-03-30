@@ -193,7 +193,7 @@ Software metrics \\label{sec:metrics}
 
 Software metrics allow to measure and quantify traits of a programs source code. They provide objective and reproducible statistics about code that can help to analyze it in terms of quality, maintainability and complexity. In this work, they are used to compare example implementations of the same functionality in MicroPython and C/C++. However, one has to be careful in drawing conclusions from them. For example, when using the number of lines of code to determine a programmer's productivity a wrong incentive is given to the programmer. The best work often reduces instead of increases the number of lines of code because shorter, more elegant and less error prone solutions to a problem were found.
 
-### Lines of Code (LOC)
+### \\glsfirst{LOC}
 
 The simplest code metric is the count of lines of code. In counting lines, ignoring blanks or comments, the size of an implementation can be judged. When comparing two implementations of the same functionality in different languages, their expressiveness can be derived: less LOC solving the same problem indicates a higher expressiveness of the language.
 The simplicity of this metric also means that nuances get lost. A good  example is the anti-pattern of magic numbers. Anti-patterns are common bad programming practices, the anti-pattern of magic numbers describes the occurrences of unexplained values in the code. Consider the following (shortened) C example:
@@ -218,7 +218,7 @@ value = raw_value / RESOLUTION;
 
 The LOC obviously increased by one, but the new solution is more readable and easier to understand. Generally, explicit is more readable than implicit, but implicit is more expressive than explicit.
 
-### \\gls{HCM}
+### \\glsfirst{HCM}
 
 \\gls{HCM} are properties of a program's implementation calculated from a static analysis of the source code. They can be used to compare the complexity of different implementations, also in different languages, of the same functionality [@halstead].
 
@@ -277,7 +277,7 @@ B = \\frac{E^{\\frac{2}{3}}}{3000}
 
 The \\gls{HCM} uses an extremely simplistic code analysis, counting operators and operands, to derive comparable metrics, which can also be used to make predictions based on past experiences. The metrics can be used to compare the complexity of implementations across languages, but due to the simplicity of the method the results do not translate well into a factor of usability. They heavily reflect program length and expressiveness, both of which are not sufficient to judge readability and writability. Furthermore, the predictions that can be made rely on statistics that are neither readily available nor easy to obtain. For this study, I will completely disregard the predictive measures, as it is not possible in the scope of this work to obtain the data needed to find legitimate and reproducible factors for them.
 
-### \\gls{CC}
+### \\glsfirst{CC}
 
 \\gls{CC} measures how much decision logic a program contains. It describes how many valid paths through a program exist, which is of special relevance for testing: every possible path has to be tested. These paths are described by a control flow graph. Nodes in this graph describe computational statements, edges represent the transfer of control between nodes. The \\gls{CC} is calculated from the number of nodes $n$, edges $e$ and connected components $p$ as shown in equation \\ref{eq:cc} [@mccabe].
 
