@@ -58,6 +58,15 @@ Toolchain Analysis
 
 Developers use programming tools as support for writing software. Tools can help to enforce style-guides, especially in complex projects with multiple developers, ensure that quality standards are met and facilitate finding and fixing errors through debugging. They can automate important tasks like testing and documentation, which often enables having up-to-date and accurate documentation in the first place.
 
+The following list shows the types of tooling that were considered in this study:
+
+* language implementation
+* IDE and editor support
+* linting tools
+* static type checkers
+* flashing, communication and debugging tools
+* documentation tools
+
 The availability and quality of such tools and resources for
 MicroPython is analyzed by identifying and testing them in practice.
 
