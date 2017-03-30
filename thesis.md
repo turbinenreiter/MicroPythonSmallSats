@@ -40,3 +40,16 @@ documentclass: scrreprt
 
 <#include "text/Conclusion.md">
 
+\\appendix
+
+# Appendix
+
+## Survey \\label{app:survey}
+
+### Group A
+
+\\includepdf[pages=-,pagecommand={},width=\\textwidth]{resources/pdf/plangs1.pdf}
+
+### Group B
+
+\\includepdf[pages=-,pagecommand={},width=\\textwidth]{resources/pdf/plangs2.pdf}

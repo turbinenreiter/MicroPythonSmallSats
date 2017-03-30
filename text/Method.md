@@ -28,7 +28,7 @@ The participants use a web-based user interface, shown in Figure \\ref{fig:surve
 
 ![Screenshot of the user interface for the survey. \\label{fig:survey}](resources/figs/survey.png){ width=75% }
 
-The response time and the quality of the answers can be used to compare the two example languages' readability. The answers can also surface usability problems, in case common errors are found.
+The response time and the quality of the answers can be used to compare the two example languages' readability. The answers can also surface usability problems, in case common errors are found. The complete survey can be found in Appendix \\ref{app:survey}.
 
 Project-Based Programming Language Evaluation
 ---------------------------------------------
