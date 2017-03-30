@@ -73,9 +73,4 @@ MicroPython is analyzed by identifying and testing them in practice.
 Example Implementations
 -----------------------
 
-Different examples are taken from the MOVE-II source code and are
-re-implemented in Python. The two implementations are then compared in
-terms of complexity, error rate and performance. In cases where a
-missing library has to be implemented, the workload of doing so is also
-analyzed. Furthermore, the creation of performance optimized libraries
-for Python which are written in C is explored.
+Different examples are taken from the MOVE-II source code and are re-implemented in Python. The two implementations are then compared in terms of complexity, error rate and performance. In cases where a missing library has to be implemented, the workload of doing so is also analyzed. Furthermore, the creation of performance optimized libraries for Python which are written in C is explored.
