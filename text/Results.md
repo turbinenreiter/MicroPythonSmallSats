@@ -95,13 +95,11 @@ Toolchain Analysis \\label{sec:tools}
 Example Implementations
 -----------------------
 
-The example implementations were developed using a Raspberry Pi acting as CDH and a Pyboard acting as the ADCS subsystem. Figure \\\ref{sys}  shows a simplified overview of the system. The UNIX part of the software developed on the Raspberry Pi also works on the actual CDH hardware, the microcontroller counterpart on the Pyboard, however, does not run on the real ADCS boards. The ADCS subsystem uses ATXMEGA microcontrollers with an 8-bit architecture which is not suitable to run MicroPython.
+The example implementations were developed using a Raspberry Pi acting as CDH and a Pyboard acting as the \\gls{ADCS} subsystem. Figure \\ref{sys}  shows a simplified overview of the system. The UNIX part of the software developed on the Raspberry Pi also works on the actual \\gls{CDH} hardware, the microcontroller counterpart on the Pyboard, however, does not run on the real \\gls{ADCS} boards. The \\gls{ADCS} subsystem uses ATXMEGA microcontrollers with an 8-bit architecture which is not suitable to run MicroPython.
 
-As the ADCS subsystem daemon uses D-Bus and SPI for communication and those libraries are not available for the targeted platform, the first step is to implement those.
+As the \\gls{ADCS} subsystem daemon uses D-Bus and \\gls{SPI} for communication and those libraries are not available for the targeted platform, the first step is to implement those.
 
-![Schematic overview of the system. A Raspberry Pi running Linux an the
-UNIX port of MicroPython is connected to a Pyboard via SPI
-[@pi][@tux][@upyl].\\label{sys}](resources/figs/sys.png){ width=75% }
+![Schematic overview of the system. A Raspberry Pi running Linux an the UNIX port of MicroPython is connected to a Pyboard via SPI [@pi][@tux][@upyl].\\label{sys}](resources/figs/sys.png){ width=75% }
 
 <#include "Results_D-bus_Library.md">
 

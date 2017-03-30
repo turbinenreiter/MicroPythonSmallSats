@@ -44,12 +44,17 @@ documentclass: scrreprt
 
 # Appendix
 
+## MicroPython dbus \\label{app:dbus}
+
+<#include "text/doc-dbus.md">
+\\newpage
+
 ## Survey \\label{app:survey}
 
-### Group A
+### Group A {-}
 
 \\includepdf[pages=-,pagecommand={},width=\\textwidth]{resources/pdf/plangs1.pdf}
 
-### Group B
+### Group B {-}
 
 \\includepdf[pages=-,pagecommand={},width=\\textwidth]{resources/pdf/plangs2.pdf}

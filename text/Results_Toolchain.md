@@ -68,4 +68,4 @@ The docstrings are still useful for generating static documentation and various 
 
 \\ \\
 
-When it comes to tools, MicroPython profits from implementing the popular Python language. Most tools available for Python work just as good with MicroPython. Multiple choices are available for all types of tools and the quality is good among all of the popular ones. MicroPython's nature as interpreter running directly on the microcontroller also makes working with it simple and easy. Any Linux distribution already has all necessary tools to get started pre-installed, and all other platforms also have those tools readily available.
+When it comes to tools, MicroPython profits from implementing the widely used Python language. Most tools available for Python work just as good with MicroPython. Multiple choices are available for all types of tools and the quality is good among all of the popular ones. MicroPython's nature as interpreter running directly on the microcontroller also makes working with it simple and easy. Any Linux distribution already has all necessary tools to get started pre-installed, and all other platforms also have those tools readily available.
