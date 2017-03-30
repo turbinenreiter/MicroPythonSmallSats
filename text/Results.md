@@ -107,39 +107,22 @@ As the \\gls{ADCS} subsystem daemon uses D-Bus and \\gls{SPI} for communication 
 
 ### ADCS Daemon
 
-Using the MicroPython D-bus and SPI libraries, a re-implementation of the ADCS subsystem daemon is possible. Because the original C version of this daemon is currently under heavy development and unfinished, a stable subset of its functionality was extracted to define a target for the re-implementation.
+Using the MicroPython D-Bus and \\gls{SPI} libraries, a re-implementation of the \\gls{ADCS} subsystem daemon is possible. Because the original C version of this daemon is currently under heavy development and unfinished, a stable subset of its functionality was extracted to define a target for the re-implementation.
 
-In a first step, the C data structures used in the original daemon are
-recreated in Python. There are two structures:
+In a first step, the C data structures used in the original daemon are recreated in Python. There are two structures:
 
--   `control` is used by the daemon to send data to the subsystem which
-    controls its functions. For example, the `mode` byte controls the
-    operating mode of the subsystem.
+-   `control` is used by the daemon to send data to the subsystem which controls its functions. For example, the `mode` byte controls the operating mode of the subsystem.
 
 -   `data` is populated with sensor data and state information from
     the subsystem.
 
-The structure definitions can not be shared across the languages, which
-means that two versions of the definition have to be maintained. Any
-differences in the definitions lead to broken data, making this a
-serious source of error for all systems where MicroPython has to
-communicate with C via such data structures. This problem can be
-addressed in two ways: either by creating a tool that can translate the
-definitions between the languages or a tool that can automatically test
-the two structures against each other.
+The structure definitions can not be shared across the languages, which means that two versions of the definition have to be maintained. Any differences in the definitions lead to broken data, making this a serious source of error for all systems where MicroPython has to communicate with C via such data structures. This problem can be addressed in two ways: either by creating a tool that can translate the definitions between the languages or a tool that can automatically test the two structures against each other.
 
-In the next step, the D-Bus interface is defined by creating the
-function bodies and registering them to the bus. Then, the actual
-functionality can be implemented. For this, the SPI library is used to
-transfer the data structures between the CDH and the ADCS subsystem.
+In the next step, the D-Bus interface is defined by creating the function bodies and registering them to the bus. Then, the actual functionality can be implemented. For this, the SPI library is used to transfer the data structures between the CDH and the ADCS subsystem.
 
 In its current form the C implementation of the daemon results in a binary with a size of 100 kB. The MicroPython implementation depends on the MicroPython interpreter, including the D-bus and SPI library, with a size of 350 kB in total. The Python code itself is 3 kB in size.
 
-Comparing the length of the implementations, the C version with about
-160 lines of code is significantly longer than the 80 line Python
-version. The Python version provides the same functionality as the
-original while being shorter, requiring less boilerplate code and being
-more readable.
+Comparing the length of the implementations, the C version with about 160 lines of code is significantly longer than the 80 line Python version. The Python version provides the same functionality as the original while being shorter, requiring less boilerplate code and being more readable.
 
 ### BMX055 Sensor Driver
 
