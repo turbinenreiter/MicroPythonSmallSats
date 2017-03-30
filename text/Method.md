@@ -37,7 +37,21 @@ The project-based evaluation tries to implement the proposed strategy described 
 
 The \\gls{ADCS} uses magnetometers, gyroscopes and sun sensors to determine the CubeSats attitude. Magnetorquers are used to create magnetic fields acting against the earth's magnetic field, allowing to stabilize the satellite and point the antenna towards the ground. The \\gls{ADCS} consists of a mainpanel with the main microcontroller, four side panels and a top panel. Each panel has a coil to generate the magnetic field, sensors and a secondary microcontroller. The main panel microcontroller controls the other panels and is itself controlled by the \\gls{CDH} unit. The \\gls{CDH} has a microprocessor running a Linux-based operating system. The \\gls{ADCS} subsystem daemon runs on the \\gls{CDH} and enables controlling the functions of the \\gls{ADCS} subsystem by exposing D-bus methods. D-bus is an interprocess communication (IPC) system, providing a mechanism allowing applications to transfer information and request services [@dbus]. These are either called by the on-board control program or remotely via the S-band communications link. The communication between the \\gls{ADCS} daemon and the \\gls{ADCS} subsystem is done via SPI.
 
-The team working on the \\gls{ADCS} software scored the different languages according to the criteria as well as the criteria's importance. The scoring is relative, not absolute and also subjective to the team members. This subjectivity however is allowed in the case of a _project_-based evaluation: a project not only includes the projects goals, but also the team working on it, the facilities, the time-frame and the whole environment in which the project is done. Therefore, an evaluation specific to a project is also specific to a team.
+The team working on the \\gls{ADCS} software scored the different languages according to the criteria as well as the criteria's importance. Each member started with a scorecard listing the criteria and the languages to compare. They then scored the fulfillment of each criteria by each languages using a symbolic scheme shown in Table \\ref{tab:sym}.
+
+Table: Symbolic scheme for grading criteria fulfillment \\label{tab:sym}
+
+grade          symbol
+------------- --------
+very weak      --
+weak           -
+neutral        •
+strong         +
+very strong    ++
+
+After that, the team compared the individual scoring in a discussion. The final scoring is the outcome of this discussion and represents a consensus among the group, rather than an average over their individual scores.
+
+The scoring is relative, not absolute and also subjective to the team members. This subjectivity however is allowed in the case of a _project_-based evaluation: a project not only includes the projects goals, but also the team working on it, the facilities, the time-frame and the whole environment in which the project is done. Therefore, an evaluation specific to a project is also specific to a team.
 
 Toolchain Analysis
 ------------------
