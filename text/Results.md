@@ -4,7 +4,7 @@ Programming Language Evaluation
 ### Readability
 
 * Simplicity  
-    A language's simplicity can not be easily measured, but certain metrics can be used to judge. The number of keywords, reserved words that have special meaning in a language, can be used to compare a language's size. Table \\ref{tab:kw} shows Python and C on the lower end of the scale with around 30 keywords, while C++ and Java use significantly more. Languages that go way below the 30 keyword range usually are special cases. Smalltalk, for example, uses just 6 keywords, with noting that compares to an ```if```, ```while``` or numerous others common primitives. Instead these are provided by a standard library.
+    A language's simplicity can not be easily measured, but certain metrics can be used to judge it. The number of keywords, reserved words that have special meaning in a language, can be used to compare a language's size. Table \\ref{tab:kw} shows Python and C on the lower end of the scale with around 30 keywords, while C++ and Java use significantly more. Languages that go way below the 30 keyword range usually are special cases. Smalltalk, for example, uses just 6 keywords, with noting that compares to an ```if```, ```while``` or numerous others common primitives. Instead these are provided by a standard library.
 
     Table: Number of reserved keywords \\label{tab:kw}
 

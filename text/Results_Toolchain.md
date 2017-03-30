@@ -62,7 +62,7 @@ In this workflow, no flashing tool is needed - getting a script on the microcont
 
 ### Documentation tools
 
-Documentation in Python utilized docstrings. These are special comments that get parsed by the interpreter and accessed from within it using the ```help()``` function. MicroPython does support the docstring syntax, however does not make them available in the interpreter, but rather discards them to save storage and memory.
+Documentation in Python utilizes docstrings. These are special comments that get parsed by the interpreter and accessed from within it using the ```help()``` function. MicroPython does support the docstring syntax, however does not make them available in the interpreter, but rather discards them to save storage and memory.
 
 The docstrings are still useful for generating static documentation and various tools are available to do so. Sphinx is a popular option that is able to create documentation in HTML, Latex and other formats [@sphinx]. Like all other tools that support Python, it can also be used for MicroPython.
 
