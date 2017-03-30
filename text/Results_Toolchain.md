@@ -60,7 +60,7 @@ For a list of available modules, type help('modules')
 
 In this workflow, no flashing tool is needed - getting a script on the microcontroller means simply copying a text file to a \\gls{MSD}. Communication happens via a serial terminal and so does debugging. The \\gls{REPL} allows to interact directly with interpreter session, so no introspection tools are needed.
 
-# Documentation tools
+### Documentation tools
 
 Documentation in Python utilized docstrings. These are special comments that get parsed by the interpreter and accessed from within it using the ```help()``` function. MicroPython does support the docstring syntax, however does not make them available in the interpreter, but rather discards them to save storage and memory.
 
