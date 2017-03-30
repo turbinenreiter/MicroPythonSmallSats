@@ -4,6 +4,16 @@ I chose to use this algorithm rather than the one being developed in the scope o
 
 The biggest caveat of this is that the Madgwick algorithm is not space ready: it relies on measuring the earth's gravitational field with the accelerometer, which is not an option in the 0-g environment in space. Nevertheless, the algorithms are similar in what they demand of the platform they run on: perform fast floating point calculation including trigonometry.
 
+In both the C and Python version, there is a single function, called ```update```. It takes nine float values as input - acceleration, turn rate and magnetic field and all three spacial dimensions, and returns four values representing the attitude as quaternion.
+
+~~~{.python}
+import fusion
+
+attitude = fusion.update(accel_x, accel_y, accel_z,
+                         gyro_x, gyro_y, gyro_z,
+                         mag_x, mag_y, mag_z,)
+~~~
+
 Table \\ref{tab:cmc} compares the code metrics of the two implementations.
 
 Table: Code metric comparison \\label{tab:cmc}

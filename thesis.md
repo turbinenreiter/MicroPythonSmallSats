@@ -49,6 +49,16 @@ documentclass: scrreprt
 <#include "text/doc-dbus.md">
 \\newpage
 
+## MicroPython UNIX \\gls{SPI} \\label{app:spi}
+
+<#include "text/doc-spi.md">
+\\newpage
+
+## MicroPython C \\gls{API} \\label{app:capi}
+
+<#include "text/doc-capi.md">
+\\newpage
+
 ## Survey \\label{app:survey}
 
 ### Group A {-}
