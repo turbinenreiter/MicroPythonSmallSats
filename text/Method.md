@@ -60,8 +60,8 @@ Developers use programming tools as support for writing software. Tools can help
 
 The following list shows the types of tooling that were considered in this study:
 
-* language implementation
-* IDE and editor support
+* language implementation and library availability
+* editor support
 * linting tools
 * static type checkers
 * flashing, communication and debugging tools
