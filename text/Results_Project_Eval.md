@@ -1,8 +1,16 @@
-The first step in the project-based language evaluation is the definition of the criteria. The criteria for the ADCS daemon are listed below, including an explanation and motivation for their inclusion.
+The first step in the project-based language evaluation is the definition of the criteria. The criteria for the \\gls{ADCS} daemon are listed below, including an explanation and motivation for their inclusion.
 
 #. The language enables memory safety.
 
     Memory errors can lead to system crashes, not just of the program itself but also of other programs running in parallel.
+
+#. The language enables creation of programs maintainable by changing developers.
+
+    Code should be developed in a way that it is usable not only by the original author, but also by others. This enables the reuse of software and ensures code doesn't get lost because the developer is not available anymore.
+
+#. The language enables splitting tasks between multiple programmers.
+
+    Complex systems are built by teams and the language has to support them in working together. Big projects are split into smaller tasks. The final program is a collection of all those.
 
 #. The language enables creation of programs with a small storage footprint.
 
@@ -14,9 +22,9 @@ The first step in the project-based language evaluation is the definition of the
 
 #. The language enables creation of efficient programs.
 
-    The CubeSat has limited processing power, both as a result of limited battery power as well as thermal constraints. The lack of cooling thermally limits the processor speed.
+    The CubeSat has limited processing power, both as a result of limited battery power as well as thermal constraints: the lack of cooling thermally limits the processor speed.
 
-#. The language enables creation of programs that can be updated using small incremental updates.
+#. The language enables creation of programs that can be updated using small, incremental updates.
 
     The bandwidth to transfer data to the satellite is limited. Smaller updates mean shorter transmission times, decreasing the chance of failure as well as the power consumption. Given that transmission windows are short and limited, failed data uploads can lead to delays in operation.
 
@@ -26,11 +34,11 @@ The first step in the project-based language evaluation is the definition of the
 
 #. A library to use dbus on the platform in use exists or can be created.
 
-    The system relies on Dbus for inter-process communication. The daemon has to provide methods via Dbus to control the ADCS hardware.
+    The system relies on Dbus for inter-process communication. The daemon has to provide methods via Dbus to control the \\gls{ADCS} hardware.
 
-#. A library to use SPI on the platform in use exists or can be created.
+#. A library to use \\gls{SPI} on the platform in use exists or can be created.
 
-    The communication between the CDH and the subsystem hardware happens via SPI. It is used to send commands to the ADCS hardware and receive data from it.
+    The communication between the CDH and the subsystem hardware happens via \\gls{SPI}. It is used to send commands to the \\gls{ADCS} hardware and receive data from it.
 
 #. The language enables quick and easy file system access to read and write files.
 
@@ -42,13 +50,13 @@ The first step in the project-based language evaluation is the definition of the
 
 #. The language provides quick and easy means to handle strings.
 
-    The program has to handle parameter updates that come in the form of strings. One example are two-line-elements (TLE) which contain orbit information.
+    The program has to handle parameter updates that come in the form of strings. One example are \\glspl{TLE} which contain orbit information.
 
 #. The language provides quick and easy means to handle C-structs.
 
-    The program has to read data and send commands to the subsystems by exchanging data in the form of C-structs via SPI.
+    The program has to read data and send commands to the subsystems by exchanging data in the form of C-structs via \\gls{SPI}.
 
-According to these criteria, MicroPython, Python, C and C++ were compared and the results are shown in Table \\ref{criteria}. While Python shows its strengths in usability, it falls short in efficiency, where C shines. MicroPython may fix those shortcomings, but for a clear statement there is not enough information yet, which is why the comparison of example implementations are needed. MicroPython also comes with its own caveats in the form of missing libraries for D-bus and SPI on the Linux platform. Implementation of the missing parts is possible and relatively straightforward, but may have to be done in C. C++ addresses many of the shortcomings of C and is the clear leader in this comparison.
+According to these criteria, MicroPython, Python, C and C++ were compared and the results are shown in Table \\ref{criteria}. While Python shows its strengths in usability, it falls short in efficiency, where C shines. MicroPython may fix those shortcomings, but for a clear statement there is not enough information yet, which is why the comparison of example implementations are needed. MicroPython also comes with its own caveats in the form of missing libraries for D-bus and \\gls{SPI} on the Linux platform. Implementation of the missing parts is possible and relatively straightforward, but may have to be done in C. C++ addresses many of the shortcomings of C and is the clear leader in this comparison.
 
 \\begin{table}[]
 \\centering
@@ -63,10 +71,10 @@ The language enables splitting tasks between multiple programmers.              
 The language enables creation of programs with a small storage footprint.           & +          & •           & --     & ++ & ++  \\\\
 The language enables creation of programs with a small memory footprint.            & +          & •           & --     & ++ & ++  \\\\
 The language enables creation of efficient programs.                                & +          & •           & -      & ++ & ++  \\\\
-The language enables creation of programs that can be updated using small diffs.    & ++         & +           & +      & +  & +   \\\\
+The language enables creation of programs that can be updated using small, incremental updates.    & ++         & +           & +      & +  & +   \\\\
 An implementation of the language for the platform in use exists or can be created. & ++         & ++          & ++     & ++ & ++  \\\\
 A library to use dbus on the platform in use exists or can be created.              & ++         & •           & ++     & ++ & ++  \\\\
-A library to use SPI on the platform in use exists or can be created.               & ++         & •           & ++     & ++ & ++  \\\\
+A library to use \\gls{SPI} on the platform in use exists or can be created.               & ++         & •           & ++     & ++ & ++  \\\\
 The language enables quick and easy file system access to read and write files.     & +          & ++          & ++     & +  & +   \\\\
 The language provides quick and easy means to parse data.                           & +          & ++          & ++     & •  & +   \\\\
 The language provides quick and easy means to handle strings.                       & +          & ++          & ++     & •  & +   \\\\
