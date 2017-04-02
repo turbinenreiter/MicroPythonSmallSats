@@ -14,7 +14,13 @@ The registers that can be read contain the measured sensor data. For example, th
 
 In addition to registers that can be read there are also registers that can be written to, allowing to control the function of the sensor, for example, by setting different sensing ranges or frequencies for the internal low pass filter.
 
-Using software metrics, shown in \\ref{tab:gcmc}, the implementation of the driver for the BMX055 gyroscope can be compared between the C++ and Python versions.
+Using software metrics, shown in \\ref{tab:gcmc}, the implementation of the driver for the BMX055 gyroscope can be compared between the C++ and Python versions. The compared versions both implemented the following functionality:
+
+* Wake up the sensor from sleep mode.
+* Perform a self test of the sensor.
+* Set and read the measurement range in $deg/s$.
+* Configure the sensors internal data filter with a bandwidth in $Hz$ and read the current configuration.
+* Return the measured x, y and z values.
 
 Table: Size and complexity comparison \\label{tab:gcmc}
 

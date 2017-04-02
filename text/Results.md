@@ -114,7 +114,17 @@ Figure \\ref{fakesat} shows the development hardware used to test the C version 
 
 The resulting software however, both the C any Python versions, are able to run on the Raspberry Pi, Beaglebone Black and original \\gls{CDH} hardware with no differences.
 
-Because the original C version of this daemon is currently under heavy development and unfinished, a stable subset of its functionality was extracted to define a target for the re-implementation.
+Because the original C version of this daemon is currently under heavy development and unfinished, a stable subset of its functionality was extracted to define a target for the re-implementation. This functionality includes:
+
+* Setting the operational mode for \\gls{ADCS} hardware via D-Bus.
+* Getting the current operational mode.
+* Updating the clock of the \\gls{ADCS} main panel microcontroller from the \\gls{CDH} system time.
+* Update different parameters used in the \\gls{ADCS} firmware, like controller gains or sensor calibration values.
+* Get all data from the \\gls{ADCS} system.
+* Check whether the daemon is available.
+* Check whether the \\gls{ADCS} hardware is available.
+* Log the data gathered by the \\gls{ADCS} system to the filesystem and read back logged data.
+* Send a signal to the other daemons when the target of the set \\gls{ADCS} mode is reached, for example when detumbling was successful.
 
 In a first step, the C data structures used in the original daemon are recreated in Python. There are two structures:
 
