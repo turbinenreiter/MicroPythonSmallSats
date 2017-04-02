@@ -9,9 +9,7 @@ In both the C and Python version, there is a single function, called ```update``
 ~~~{.python}
 import fusion
 
-attitude = fusion.update(accel_x, accel_y, accel_z,
-                         gyro_x, gyro_y, gyro_z,
-                         mag_x, mag_y, mag_z,)
+attitude = fusion.update(accel_x, accel_y, accel_z, gyro_x, gyro_y, gyro_z, mag_x, mag_y, mag_z)
 ~~~
 
 Table \\ref{tab:cmc} compares the code metrics of the two implementations.
@@ -20,7 +18,7 @@ Table: Size and complexity comparison \\label{tab:cmc}
 
 Language    Filename          LOC    Number of Tokens       CC
 ----------  --------------  -----  ------------------  -------
-Python      fusion.py         158                2132  2.625
+Python      fusion.py         158                2132  2.6
 C           fusion.c          160                2100  2.8
 
 Interestingly, in this case the Python implementation is about the same length as the C implementation. Because the algorithm was directly translated from C to Python, the style is very C-like and does not use Python's advanced features. The Python version also embeds the function within a class, adding a few extra lines for the class definition. Still, the \\gls{CC} is a bit lower.
