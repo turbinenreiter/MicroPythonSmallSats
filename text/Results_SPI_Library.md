@@ -1,5 +1,3 @@
-### \\gls{SPI} Library {#SPI-library}
-
 MicroPython's hardware \\gls{API} is a module called ```machine``` which provides access to peripherals like \\gls{SPI}. Currently, the UNIX version of MicroPython lacks this machine module. On UNIX systems, hardware access via device drivers is abstracted by a device file, allowing to interface by simple input/output system calls. The hardware is controlled by reading and writing special content to special files.
 
 Python-periphery is a pure Python library providing hardware access by using these device files and it can be used with MicroPython after slight modifications [@pp]. Because the \\gls{API} it provides is different from the native MicroPython hardware \\gls{API}, I changed it to mimic MicroPython's \\gls{API}, thereby creating a UNIX port of the machine module.

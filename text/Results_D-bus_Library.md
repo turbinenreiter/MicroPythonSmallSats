@@ -1,5 +1,3 @@
-### D-bus Library
-
 A minimal D-bus library for the UNIX port of MicroPython was implemented in C, allowing MicroPython functions to be exposed as methods on the user bus. The underlying C library is sd-bus [@sdbus], which is also used in the C implementation of the daemon on the MOVE-II CubeSat. The library can thus be shared and the added size is only the size of the MicroPython bindings. When using sd-bus in C, to expose functionality on the D-bus, it has to be wrapped in a function. The function logic can either be directly implemented in this interface function, or the interface can be separated from the logic by moving the logic into an external function that is only called from the interface function. The interface function parses the input data from the D-bus message and replies with another message, containing the data created by the function logic.
 
 ~~~{.c}
