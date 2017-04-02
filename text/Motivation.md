@@ -19,10 +19,10 @@ In 2009, NASA published a Study on Flight Software Complexity [@Dvorak] to addre
 
 In fact, software errors have already caused many space missions to go awry. A 2010 study on recent catastrophic accidents [@catastrophic] named six space missions that failed due to faulty software. Table \\ref{tab:mislo} summarizes the missions and the cause for their loss.
 
-Table: Space mission losses due to faulty Software \\label{tab:mislo}
+Table: Space Mission losses due to faulty Software\\label{tab:mislo}
 
 ------------------------------------------------------------------
-mission                         cause of failure
+Mission                         Cause of Failure
 ------------------------------- ----------------------------------
 Demonstration of Autonomous     Unintended software resets caused 
 Rendezvous Technology (DART)    fuel depletion and erroneous 
@@ -102,7 +102,7 @@ In addition to the conservative approach common in space systems, language avail
 Table: Programming Language Availability on Microcontrollers \\label{tab:uclang}
 
 ------------------------------------------------------------------------
-language          project            availability     \\gls{HAL}                   character
+Language          Project            Availability     \\gls{HAL}                   Character
 ----------------- ------------------ ---------------- --------------------------- ------------------------------
 C                 GCC                common           vendor supplied             industry standard
 

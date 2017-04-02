@@ -39,9 +39,9 @@ The \\gls{ADCS} uses magnetometers, gyroscopes and sun sensors to determine the 
 
 The team working on the \\gls{ADCS} software scored the different languages according to the criteria as well as the criteria's importance. Each member started with a scorecard listing the criteria and the languages to compare. They then scored the fulfillment of each criteria by each languages using a symbolic scheme shown in Table \\ref{tab:sym}.
 
-Table: Symbolic scheme for grading criteria fulfillment \\label{tab:sym}
+Table: Symbolic Scheme for grading Criteria Fulfillment \\label{tab:sym}
 
-grade          symbol
+Grade          Symbol
 ------------- --------
 very weak      --
 weak           -

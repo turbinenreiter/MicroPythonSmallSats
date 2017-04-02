@@ -3,7 +3,7 @@
 * Simplicity  
     A language's simplicity can not be easily measured, but certain metrics can be used to judge it. The number of keywords, reserved words that have special meaning in a language, can be used to compare a language's size. Table \\ref{tab:kw} shows Python and C on the lower end of the scale with around 30 keywords, while C++ and Java use significantly more. Languages that go way below the 30 keyword range usually are special cases. Smalltalk, for example, uses just 6 keywords, with noting that compares to an ```if```, ```while``` or numerous others common primitives. Instead these are provided by a standard library.
 
-    Table: Number of reserved keywords \\label{tab:kw}
+    Table: Number of Reserved Keywords \\label{tab:kw}
 
      language             Smalltalk   Go   C    Python   Java   JavaScript   C++
     -------------------- ----------- ---- ---- -------- ------ ------------ -----
@@ -62,9 +62,9 @@ language.\\label{fig:pixels}](../language_survey/results/praktikum/map.png){ wid
 
 As the main measurement for this survey is the time, the examples were chosen such, that a high rate of correct answers was likely. Table \\ref{tab:can} shows the rate of correct answers for both languages at about 70%, with C having a small lead on Python.
 
-Table: Rate of correct answers\\label{tab:can}
+Table: Rate of Correct Answers\\label{tab:can}
 
-Language    correct answers
+Language    Correct Answers
 ---------  -----------------
 Python      67.3%
 C           70.4%

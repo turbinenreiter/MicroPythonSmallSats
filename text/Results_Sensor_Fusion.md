@@ -14,7 +14,7 @@ attitude = fusion.update(accel_x, accel_y, accel_z, gyro_x, gyro_y, gyro_z, mag_
 
 Table \\ref{tab:cmc} compares the code metrics of the two implementations.
 
-Table: Size and complexity comparison \\label{tab:cmc}
+Table: Size and complexity comparison of the Madgwick Sensor Fusion Algorithm \\label{tab:cmc}
 
 Language    Filename          LOC    Number of Tokens       CC
 ----------  --------------  -----  ------------------  -------
@@ -27,7 +27,7 @@ This shows that directly translating C to Python results in code that is equally
 
 Given these circumstances, for this example, the readability comparison is less interesting than a comparison of the speed, as shown in Table \\ref{tab:speedc}.
 
-Table: Speed comparison \\label{tab:speedc}
+Table: Speed comparison of the Madgwick Sensor Fusion Algorithm \\label{tab:speedc}
 
 Language               Platform      runs  total $s$    average $ms$
 ---------------------  --------- -------- ----------- --------------
