@@ -63,14 +63,14 @@ Figure \\ref{fig:pixels} shows all results at once and compares the time spent o
 ![Relative time spent on each example by each participant per
 language.\\label{fig:pixels}](../language_survey/results/praktikum/map.png){ width=75% }
 
-As the main measurement for this survey is the time, the examples were chosen such, that a high rate of correct answers was likely. Table \\ref{tab:can} shows the rate of correct answers for both languages at about $70%$, with C having a small lead on Python.
+As the main measurement for this survey is the time, the examples were chosen such, that a high rate of correct answers was likely. Table \\ref{tab:can} shows the rate of correct answers for both languages at about 70%, with C having a small lead on Python.
 
 Table: Rate of correct answers\\label{tab:can}
 
 Language    correct answers
 ---------  -----------------
-Python      $67.3%$
-C           $70.4%$
+Python      67.3%
+C           70.4%
 
 These results are positive, especially when considering the prior knowledge stated by the participants: all of them stated at least a beginner-level of familiarity with C, with one third stating advanced-level, while only one third reached that beginner-level with Python. Two thirds had no prior knowledge of Python at all.
 
@@ -81,7 +81,7 @@ for i in range(0, 3):
     print(i)
 ~~~
 
-The error rate here was $100%$, while the corresponding C example shown below had an error rate of $0%$.
+The error rate here was 100%, while the corresponding C example shown below had an error rate of 0%.
 
 ~~~{.c}
 for(i=0; i<3; i++) {
@@ -89,7 +89,7 @@ for(i=0; i<3; i++) {
 }
 ~~~
 
-The correct answer for both examples is an output of 0, 1, and 2, but for the Python example all participants answered 0, 1, 2 and 3. At an error rate of $100%$, it is safe to say that this is a counterintuitive language construct, rather than user error. The reason for this behaviour is the commonly used zero-indexing of lists: the first element in a list has the adress 0, rather than 1. While this is also used in C, Python's ```range``` keyword creates enough confusion to make people get it wrong, even when they know about zero-indexing.
+The correct answer for both examples is an output of 0, 1, and 2, but for the Python example all participants answered 0, 1, 2 and 3. At an error rate of 100%, it is safe to say that this is a counterintuitive language construct, rather than user error. The reason for this behaviour is the commonly used zero-indexing of lists: the first element in a list has the adress 0, rather than 1. While this is also used in C, Python's ```range``` keyword creates enough confusion to make people get it wrong, even when they know about zero-indexing.
 
 Other examples with unusually high error rates were examples that showed errors or undefined behaviour, like accessing an unintialized variable. For both languages, participants expected an error message. For Python this answer is true, but for C, this depends on the used compiler and compiler settings: C allows accessing uinitialized variables, the returned value is whatever the corresponding memory area holds at that moment. The compiler doesn't issue an error, but only a warning that might not be shown. To avoid such errors, it is advisable to treat warnings as erros, which all C compilers support.
 
