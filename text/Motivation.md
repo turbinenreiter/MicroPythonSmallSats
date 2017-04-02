@@ -70,7 +70,7 @@ Ariane 5 – Flight 501           The rocket veered off course and
                                 a data type could hold and caused 
                                 an overflow. The error was 
                                 located in software that was 
-                                reused from the Aiane 4.
+                                reused from the Ariane 4.
 
 ------------------------------------------------------------------
 

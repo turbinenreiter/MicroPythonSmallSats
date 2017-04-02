@@ -97,9 +97,9 @@ Example Implementations \\label{sec:ex}
 
 The example implementations were developed using a Raspberry Pi acting as CDH and a Pyboard acting as the \\gls{ADCS} subsystem. Figure \\ref{sys}  shows a simplified overview of the system. The UNIX part of the software developed on the Raspberry Pi also works on the actual \\gls{CDH} hardware, the microcontroller counterpart on the Pyboard, however, does not run on the real \\gls{ADCS} boards. The \\gls{ADCS} subsystem uses ATXMEGA microcontrollers with an 8-bit architecture which is not suitable to run MicroPython.
 
-As the \\gls{ADCS} subsystem daemon uses D-Bus and \\gls{SPI} for communication and those libraries are not available for the targeted platform, the first step is to implement those.
+![Schematic overview of the system. A Raspberry Pi running Linux and the UNIX port of MicroPython is connected to a Pyboard via SPI [@pi][@tux][@upyl].\\label{sys}](resources/figs/sys.png){ width=75% }
 
-![Schematic overview of the system. A Raspberry Pi running Linux an the UNIX port of MicroPython is connected to a Pyboard via SPI [@pi][@tux][@upyl].\\label{sys}](resources/figs/sys.png){ width=75% }
+As the \\gls{ADCS} subsystem daemon uses D-Bus and \\gls{SPI} for communication and those libraries are not available for the targeted platform, the first step is to implement those.
 
 <#include "Results_D-bus_Library.md">
 
@@ -107,7 +107,14 @@ As the \\gls{ADCS} subsystem daemon uses D-Bus and \\gls{SPI} for communication 
 
 ### ADCS Daemon
 
-Using the MicroPython D-Bus and \\gls{SPI} libraries, a re-implementation of the \\gls{ADCS} subsystem daemon is possible. Because the original C version of this daemon is currently under heavy development and unfinished, a stable subset of its functionality was extracted to define a target for the re-implementation.
+Using the MicroPython D-Bus and \\gls{SPI} libraries, a re-implementation of the \\gls{ADCS} subsystem daemon is possible.
+Figure \\ref{fakesat} shows the development hardware used to test the C version of the daemon. Here, the gls\\{CDH} is emulated by a Beaglebone Black and the real \\gls{ADCS} main and side panels are used. The choice to work on different hardware for this thesis was taken to not interfere with the development process of the flight software. Given the strict timeframe for development of MOVE-II, I could not block the hardware by running tests not directly related to the actual project.
+
+![The development hardware for the C version of the daemon.\\label{fakesat}](resources/figs/fakesat.jpeg){ width=75% }
+
+The resulting software however, both the C any Python versions, are able to run on the Raspberry Pi, Beaglebone Black and original \\gls{CDH} hardware with no differences.
+
+Because the original C version of this daemon is currently under heavy development and unfinished, a stable subset of its functionality was extracted to define a target for the re-implementation.
 
 In a first step, the C data structures used in the original daemon are recreated in Python. There are two structures:
 
