@@ -14,13 +14,13 @@ The registers that can be read contain the measured sensor data. For example, th
 
 In addition to registers that can be read there are also registers that can be written to, allowing to control the function of the sensor, for example, by setting different sensing ranges or frequencies for the internal low pass filter.
 
-Using software metrics, the implementation of the driver for the BMX055 gyroscope can be compared between the C++ and Python versions 
+Using software metrics, shown in \\ref{tab:gcmc}, the implementation of the driver for the BMX055 gyroscope can be compared between the C++ and Python versions.
 
-Table: Software metric comparison of gyroscope driver in Python and C++
+Table: Size and complexity comparison \\label{tab:gcmc}
 
-Language   LOC   Average LOC per function   CCN   Avg.token
---------- ----- -------------------------- ----- -----------
-Python     68        5.5                    1.5       55.8
-C++        276      13.7                    2.8       80.0
+Language    Filename          LOC    Number of Tokens       CC
+----------  --------------  -----  ------------------  -------
+Python      gyroscope.py       50                 516  1.5
+C++         gyroscope.cpp      73                 450  2.5
 
-The Python version of the code is shorter and less complex. The languages expressiveness and the quality of the ```machine``` module allow writing simple and high level code, even when dealing with hardware at the register level.
+The Python version of the code is shorter and less complex, but the difference is much smaller than it was for the \\gls{ADCS} daemon. The languages expressiveness and the quality of the ```machine``` module allow writing simple and high level code, even when dealing with hardware at the register level. However, the C version also uses a well designed interface for the communication. In addition, the C driver can use header files to define the register names and values. These header files do not count towards the programs size in this comparison, because they are simple tables that have no negative impact on the usability. A long header file does not add to a programs complexity when it only defines names for register values, but rather improves readability. In MicroPython, this split is not done, as the Python style prefers having a single file for each specific thematic. This example also used the optional type hints, adding tokens that are usually omitted compared to C code.

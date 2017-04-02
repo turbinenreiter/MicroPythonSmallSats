@@ -36,7 +36,7 @@ Programming Language Evaluation
     Python supports abstraction well and allows using the object-oriented programming paradigm. There is no concept of public and private, following the philosophy of abstracting complexity, but at the same time not hiding implementation details.
 
 * Expressiveness  
-    Expressiveness is a clear strength of Python. Empirical studies have found that implementing the same requirements in Python yield significant less lines of code than for example in C [@codecomp].
+    Expressiveness is a clear strength of Python. Empirical studies have found that implementing the same requirements in Python yield significant less lines of code than for the same examples implemented in C [@codecomp]. The examples in Section \\ref{sec:ex} also confirm this.
 
 ### Reliability
 
@@ -92,7 +92,7 @@ Toolchain Analysis \\label{sec:tools}
 
 <#include "Results_Toolchain.md">
 
-Example Implementations
+Example Implementations \\label{sec:ex}
 -----------------------
 
 The example implementations were developed using a Raspberry Pi acting as CDH and a Pyboard acting as the \\gls{ADCS} subsystem. Figure \\ref{sys}  shows a simplified overview of the system. The UNIX part of the software developed on the Raspberry Pi also works on the actual \\gls{CDH} hardware, the microcontroller counterpart on the Pyboard, however, does not run on the real \\gls{ADCS} boards. The \\gls{ADCS} subsystem uses ATXMEGA microcontrollers with an 8-bit architecture which is not suitable to run MicroPython.
@@ -120,9 +120,18 @@ The structure definitions can not be shared across the languages, which means th
 
 In the next step, the D-Bus interface is defined by creating the function bodies and registering them to the bus. Then, the actual functionality can be implemented. For this, the SPI library is used to transfer the data structures between the CDH and the ADCS subsystem.
 
-In its current form the C implementation of the daemon results in a binary with a size of 100 kB. The MicroPython implementation depends on the MicroPython interpreter, including the D-bus and SPI library, with a size of 350 kB in total. The Python code itself is 3 kB in size.
+In its current form the C implementation of the daemon results in a binary with a size of about 100 kB. The MicroPython implementation depends on the MicroPython interpreter, including the D-bus and SPI library, with a size of about 350 kB in total. The Python code itself is approximately 3 kB in size.
 
-Comparing the length of the implementations, the C version with about 160 lines of code is significantly longer than the 80 line Python version. The Python version provides the same functionality as the original while being shorter, requiring less boilerplate code and being more readable.
+Table \\ref{tab:scd} shows size and complexity measures of the two examples.
+
+Table: Size and complexity comparison \\label{tab:scd}
+
+Language    Filename          LOC    Number of Tokens       CC
+----------  --------------  -----  ------------------  -------
+Python      adcsdaemon.py     103                 712  2
+C++         adcsdaemon.cpp    216                1406  3.2
+
+Comparing the length of the implementations, the C version is about about twice as long as the Python version. The Python version provides the same functionality as the original while being shorter, requiring less boilerplate code and being more readable. The \\gls{CC} is also reduced in the Python version. This reduction can mostly be attributed to the simplified and reduced error handling the language enables, as well as the higher abstraction level of the MicroPython D-Bus library when compared to the sd-bus library used in C.
 
 ### BMX055 Sensor Driver
 

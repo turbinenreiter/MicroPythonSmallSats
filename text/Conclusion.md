@@ -28,6 +28,8 @@ The benefits of using Python in space are tied to its focus on readability, whic
 
 The main drawbacks of using MicroPython are execution speed and availability. Both can be overcome, but require writing C code. By interfacing C code with MicroPython, performance critical parts of the system can retain the speed of C, while gaining the better usability of Python. In the scope of the prior example, this would mean that the software developer provides a fast C library that the control engineer can use from MicroPython. In the same way, the software developer would have to make sure that the used hardware is supported by MicroPython. If unsupported hardware is used, the developer would have to implement it. But also for already supported hardware, maintenance work can be necessary. Using Open Source software, like the MicroPython implementation, also requires a commitment to invest time into maintaining and expanding it.
 
+The example implementations showed that the benefits of Python in aiding usability weigh heavier at the higher levels, like application logic, than at the lower levels, like device drivers. Combined with the speed penalty of the language, the right place to use MicroPython is at the application level. Drivers and performance critical algorithms can be prototyped in Python, but implementing them in C or C++ is beneficial.
+
 Outlook
 -------
 
