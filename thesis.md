@@ -58,12 +58,12 @@ documentclass: scrreprt
 
 <!--<#include "text/doc-capi.md">-->
 
-## Survey \\label{app:survey}
+<!--## Survey \\label{app:survey}-->
 
-### Group A {-}
+<!--### Group A {-}-->
 
-\\includepdf[pages=-,pagecommand={},width=\\textwidth]{resources/pdf/plangs1.pdf}
+<!--\\includepdf[pages=-,pagecommand={},width=\\textwidth]{resources/pdf/plangs1.pdf}-->
 
-### Group B {-}
+<!--### Group B {-}-->
 
-\\includepdf[pages=-,pagecommand={},width=\\textwidth]{resources/pdf/plangs2.pdf}
+<!--\\includepdf[pages=-,pagecommand={},width=\\textwidth]{resources/pdf/plangs2.pdf}-->
