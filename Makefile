@@ -26,6 +26,7 @@ PANDOC_TEX_OPTIONS = --template=resources/tex/lrt.tex --biblatex --to latex
 	latexmk -f -pdf -jobname=build/thesis
 	latexmk -c -jobname=build/thesis
 	rm thesis.tex
+	pdftotext build/thesis.pdf - | wc -w
 
 # Targets and dependencies
 
