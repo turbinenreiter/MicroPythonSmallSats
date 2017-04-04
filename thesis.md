@@ -56,7 +56,7 @@ documentclass: scrreprt
 
 ## MicroPython C \\gls{API} \\label{app:capi}
 
-<!--<#include "text/doc-capi.md">-->
+<#include "text/doc-capi.md">
 
 <!--## Survey \\label{app:survey}-->
 

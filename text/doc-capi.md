@@ -1,25 +1,48 @@
 This section gives an overview of the parts needed to create C-modules for MicroPython.
 
-* Needed headers
+__Needed headers__
 
-    * ```"py/mpconfig.h"```
-    * ```"py/obj.h"```
-    * ```"py/runtime.h"```
+* ```"py/mpconfig.h"```
+* ```"py/obj.h"```
+* ```"py/runtime.h"```
 
-* Defining Functions
+__Defining Functions__
 
-Functions that are supposed to be exposed to MicroPython need to have the type ```STATIC mp_obj_t```.
+Functions that are supposed to be exposed to MicroPython need to have the type ```STATIC mp_obj_t``` and return a variable of the type ```mp_obj_t```.
 
-* Exposing Functions
+__Exposing Functions__
 
 After the function was defined, a set of macros can be used to expose it, depending on the number of arguments it takes.
 
-    * ```STATIC MP_DEFINE_CONST_FUN_OBJ_0(<function-name>_obj, <function-name>);``` for functions with zero arguments
-    * ```STATIC MP_DEFINE_CONST_FUN_OBJ_1(<function-name>_obj, <function-name>);``` for functions with one argument
-    * ```STATIC MP_DEFINE_CONST_FUN_OBJ_2(<function-name>_obj, <function-name>);``` for functions with two arguments
-    * ```STATIC MP_DEFINE_CONST_FUN_OBJ_3(<function-name>_obj, <function-name>);``` for functions with three arguments
-    * ```STATIC MP_DEFINE_CONST_FUN_OBJ_0(<function-name>_obj, <function-name>);``` for functions with zero arguments
-    * ```STATIC MP_DEFINE_CONST_FUN_OBJ_VAR_BETWEEN(<function-name>_obj, <minimum-number-of-arguments>, <maximum-number-of-arguments>, <function-name>);```
+For functions with zero arguments:
+
+~~~{.c}
+STATIC MP_DEFINE_CONST_FUN_OBJ_0(<function-name>_obj, <function-name>);
+~~~
+
+For functions with one argument:
+
+~~~{.c}
+STATIC MP_DEFINE_CONST_FUN_OBJ_1(<function-name>_obj, <function-name>);
+~~~
+
+For functions with two arguments:
+
+~~~{.c}
+STATIC MP_DEFINE_CONST_FUN_OBJ_2(<function-name>_obj, <function-name>);
+~~~
+
+For functions with three arguments:
+
+~~~{.c}
+STATIC MP_DEFINE_CONST_FUN_OBJ_3(<function-name>_obj, <function-name>);
+~~~
+
+For functions with other numbers of arguments:
+
+~~~{.c}
+STATIC MP_DEFINE_CONST_FUN_OBJ_VAR_BETWEEN(<function-name>_obj, <min-no-of-args>, <max-no-of-args>, <function-name>);
+~~~
 
 For example:
 
@@ -35,46 +58,50 @@ STATIC mp_obj_t example(size_t n_args, const mp_obj_t *args) {
 STATIC MP_DEFINE_CONST_FUN_OBJ_VAR_BETWEEN(example_obj, 2, 2, example); // min-arg = max-arg = 2-> exactly two arguments
 ~~~
 
-* Creating the MicroPython bindings
+__Creating the MicroPython bindings__
 
-    * ROM elements
+* ROM elements
 
-    A ```STATIC const mp_rom_map_elem_t``` holds the strings needed for the module: its name and the name of its functions. These strings are stored in the ROM.
+A ```STATIC const mp_rom_map_elem_t``` holds the strings needed for the module: its name and the name of its functions. These strings are stored in the ROM.
 
-    For example:
+For example:
 
-    ~~~{.c}
-    STATIC const mp_rom_map_elem_t mp_module_<module-name>_globals_table[] = {
-        { MP_ROM_QSTR(MP_QSTR___name__), MP_ROM_QSTR(MP_QSTR_<module-name>) },
-        { MP_ROM_QSTR(MP_QSTR_<function-name>), (mp_obj_t)&mod_<function-name>_update_obj },
-    };
-    ~~~
-
-    * Module dictionary
-
-    The ```MP_DEFINE_CONST_DICT``` creates a dictionary for the module:
-
-    ```STATIC MP_DEFINE_CONST_DICT(mp_module_<module-name>_globals, mp_module_dbus_globals_table);```
-
-    * Module object
-
-    At last, a module object is defined:
-
-    const mp_obj_module_t mp_module_<module-name> = {
-    .base = { &mp_type_module },
-    .globals = (mp_obj_dict_t*)&mp_module_<module-name>_globals,
+~~~{.c}
+STATIC const mp_rom_map_elem_t mp_module_<module-name>_globals_table[] = {
+    { MP_ROM_QSTR(MP_QSTR___name__), MP_ROM_QSTR(MP_QSTR_<module-name>) },
+    { MP_ROM_QSTR(MP_QSTR_<function-name>), (mp_obj_t)&mod_<function-name>_update_obj },
 };
+~~~
+
+* Module dictionary
+
+The ```MP_DEFINE_CONST_DICT``` creates a dictionary for the module:
+
+~~~{.c}
+STATIC MP_DEFINE_CONST_DICT(mp_module_<module-name>_globals, mp_module_dbus_globals_table);
+~~~
+
+* Module object
+
+At last, a module object is defined:
+
+~~~{.c}
+const mp_obj_module_t mp_module_<module-name> = {
+.base = { &mp_type_module },
+.globals = (mp_obj_dict_t*)&mp_module_<module-name>_globals,
+};
+~~~
 
 All of the above is written to a single C file which is best stored in the ```extmod``` folder with the name ```mod<module-name>.c```.
 
-* Add the module to the build
+* Adding the module to the build
 
 In the Makefile, the source file has to be added:
 
 ~~~
 EXTMOD_SRC_C = $(addprefix extmod/,\
-       mod<module-name>.c \
-       )
+   mod<module-name>.c \
+   )
 
 OBJ += $(addprefix $(BUILD)/, $(EXTMOD_SRC_C:.c=.o))
 
@@ -95,30 +122,36 @@ extern const struct _mp_obj_module_t mp_module_<module-name>;
 #endif
 
 #define MICROPY_PORT_BUILTIN_MODULES \
-    MICROPY_PY_<MODULE-NAME>_DEF
+MICROPY_PY_<MODULE-NAME>_DEF
 ~~~
 
-* Useful functions for interfacing C and MicroPython
+__Useful functions for interfacing C and MicroPython__
 
-    * Call a MicroPython function from C
+Calling a MicroPython function from C:
 
-        * ```mp_call_function_<number-of-arguments>(<function-pointer>, <argument, ...>)```
+~~~{c.}
+mp_call_function_<number-of-arguments>(<function-pointer>, <argument, ...>)
+~~~
 
-    * Creating C data types from MicroPython objects
+Creating C data types from MicroPython objects:
 
-        * mp_obj_get_array(mp_obj_t obj_name, int array_length, <type> array)
-        * mp_obj_get_int(mp_obj_t obj_name)
-        * mp_obj_get_float(mp_obj_t obj_name)
-        * mp_obj_str_get_qstr(mp_obj_t obj_name)
+~~~{.c}
+mp_obj_get_array(mp_obj_t obj_name, int array_length, <type> array)
+mp_obj_get_int(mp_obj_t obj_name)
+mp_obj_get_float(mp_obj_t obj_name)
+mp_obj_str_get_qstr(mp_obj_t obj_name)
+~~~
 
-    * Creating MicroPython objects from C data types
+Creating MicroPython objects from C data types:
 
-        * mp_obj_new_bool(bool bool_name)
-        * mp_obj_new_int_from_ll(int64_t int_name)
-        * mp_obj_new_float(float float_name)
-        * mp_obj_new_str(char* string_name, mp_uint_t size)
-        * mp_obj_new_list(int length, <type> array)
-            * mp_obj_list_append(mp_obj_t list_name, mp_obj_t new_entry)
+~~~{.c}
+mp_obj_new_bool(bool bool_name)
+mp_obj_new_int_from_ll(int64_t int_name)
+mp_obj_new_float(float float_name)
+mp_obj_new_str(char* string_name, mp_uint_t size)
+mp_obj_new_list(int length, <type> array)
+mp_obj_list_append(mp_obj_t list_name, mp_obj_t new_entry)
+~~~
 
 \\ \\
 
