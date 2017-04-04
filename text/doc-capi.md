@@ -55,7 +55,7 @@ STATIC mp_obj_t example(size_t n_args, const mp_obj_t *args) {
 
     return mp_obj_new_float(arg0 + arg1); // create new MicroPython float from C float
 }
-STATIC MP_DEFINE_CONST_FUN_OBJ_VAR_BETWEEN(example_obj, 2, 2, example); // min-arg = max-arg = 2-> exactly two arguments
+STATIC MP_DEFINE_CONST_FUN_OBJ_VAR_BETWEEN(example_obj, 2, 2, example); // min-arg = max-arg = 2-> exactly two arguments (OBJ_2 should be used here, but using OBJ_VAR for demonstration)
 ~~~
 
 __Creating the MicroPython bindings__
