@@ -54,7 +54,7 @@ documentclass: scrreprt
 <#include "text/doc-spi.md">
 \\newpage
 
-<!--## MicroPython C \\gls{API} \\label{app:capi}-->
+## MicroPython C \\gls{API} \\label{app:capi}
 
 <!--<#include "text/doc-capi.md">-->
 
