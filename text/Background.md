@@ -17,7 +17,7 @@ The \\gls{ESA} project of porting MicroPython to the LEON platform performed by 
 * optimizations to reduce the use of the dynamic heap memory, allowing to run programs with a locked heap to ensure a program is deterministic
 * integration of MicroPython with RTEMS, a \\gls{RTOS} used by \\gls{ESA}
 
-Given the work done by \\gls{ESA}, this thesis focuses on an language evaluation under practical conditions, emphasizing the usability of the language and tools.
+Given the work done by \\gls{ESA}, this thesis focuses on a language evaluation under practical conditions, emphasizing the usability of the language and tools when practically applied to a space project.
 
 Programming Language Evaluation
 -------------------------------
