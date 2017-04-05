@@ -66,8 +66,8 @@ Table: Rate of Correct Answers\\label{tab:can}
 
 Language    Correct Answers
 ---------  -----------------
-Python      67.3%
-C           70.4%
+Python      $67.3~\\%$
+C           $70.4~\\%$
 
 These results are positive, especially when considering the prior knowledge stated by the participants: all of them stated at least a beginner-level of familiarity with C, with one third stating advanced-level, while only one third reached that beginner-level with Python. Two thirds had no prior knowledge of Python at all.
 
@@ -78,7 +78,7 @@ for i in range(0, 3):
     print(i)
 ~~~
 
-The error rate here was 100%, while the corresponding C example shown below had an error rate of 0%.
+The error rate here was %100~\\%$, while the corresponding C example shown below had an error rate of $0~\\%$.
 
 ~~~{.c}
 for(i=0; i<3; i++) {
