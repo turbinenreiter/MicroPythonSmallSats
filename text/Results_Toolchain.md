@@ -12,13 +12,13 @@ Python is widely supported by all general purpose code editors. The two relevant
 
 The editor used for all code developed during this project is gedit [@gedit]. It is a simple, yet powerful, graphical text editor. However, given the popularity of Python, all popular editors support it, allowing the developers to chose their tools by personal preference.
 
-### Linting tools
+### Linting Tools
 
 Pylint is the standard linting tool for Python and it can be used for MicroPython as well. It allows to enforce coding standards,for example naming conventions, line length, dead-code detection, and thereby aids readability and maintainability of the code. It also provides error checking which helps addressing the problem of runtime errors in interpreted languages.
 
 Pylint can be configured by the user and thereby allows fine-tuning of the style it enforces. For example, some naming conventions common in the microcontroller world, like naming registers in all caps, are not compliant with the style standard commonly used by desktop Python programmers. By modifying Pylint's configuration file, the enforced style can be adapted to the programming domain.
 
-### Static type checking
+### Static Type Checking
 
 Python is a dynamically typed language, which also creates the risk of runtime errors. Mypy is a tool providing static type checking using type hints that are allowed in the Python syntax [@mypy]. In MicroPython, these type hints can even be used to compile functions to native assembler code, providing better performance.
 
@@ -40,7 +40,7 @@ Running mypy on Python code files outfitted with these type hints checks if ther
 
 Mypy started as extension to Python that introduced incompatible syntax. Mypy code had to be translated back to standard Python code to be run with a Python interpreter. However, feedback was so positive, that an official syntax for type hints was introduced to Python. They are now a native part of the syntax and are being used more and more.
 
-### Flashing, communication and debugging tools
+### Flashing, Communication and Debugging Tools
 
 For practical working with MicroPython on a microcontroller only the most basic tools are needed: a text editor and a serial terminal. Source code can be directly copied onto the microcontroller storage, which, when connected to a computer with a USB cable, acts as a \\gls{MSD}. The code copied onto the storage is then compiled to bytecode on the microcontroller itself and is executed. Using a serial terminal application, a \\gls{REPL} can be accessed, allowing to interactively type in code that gets executed by the microcontroller. The usual debugging cycle of microcontroller programming (write $\\rightarrow$ compile $\\rightarrow$ flash$\\rightarrow$ run) is drastically shortened to just write and run.
 
@@ -60,7 +60,7 @@ For a list of available modules, type help('modules')
 
 In this workflow, no flashing tool is needed - getting a script on the microcontroller means simply copying a text file to a \\gls{MSD}. Communication happens via a serial terminal and so does debugging. The \\gls{REPL} allows to interact directly with interpreter session, so no introspection tools are needed.
 
-### Documentation tools
+### Documentation Tools
 
 Documentation in Python utilizes docstrings. These are special comments that get parsed by the interpreter and accessed from within it using the ```help()``` function. MicroPython does support the docstring syntax, however does not make them available in the interpreter, but rather discards them to save storage and memory.
 

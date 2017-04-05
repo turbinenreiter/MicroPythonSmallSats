@@ -22,7 +22,7 @@ Using software metrics, shown in \\ref{tab:gcmc}, the implementation of the driv
 * Configure the sensors internal data filter with a bandwidth in $Hz$ and read the current configuration.
 * Return the measured x, y and z values.
 
-Table: Size and complexity comparison of the Gyroscope Driver \\label{tab:gcmc}
+Table: Size and Complexity Comparison of the Gyroscope Driver \\label{tab:gcmc}
 
 Language    Filename          LOC    Number of Tokens       CC
 ----------  --------------  -----  ------------------  -------

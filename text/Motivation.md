@@ -13,13 +13,13 @@ Derived from that list, the core idea of this study is:
 
 In this chapter the motivation for this study is detailed by taking a closer look at the aspects mentioned above.
 
-## Rising software complexity and software errors leading to mission failure
+## Rising Software Complexity and Software Errors leading to Mission Failure
 
 In 2009, NASA published a Study on Flight Software Complexity [@Dvorak] to address the risks associated with the growth of size and complexity of flight software for their space missions. It analyzed past missions and found software size to be growing approximately by a factor of 10 every 10 years. More software also means more possible errors. The study estimates a defect rate of $1$ defect per $10,000$ lines of code even for exceptionally good software development processes. With the size of the software for NASA's Orion project approaching 1 million lines of code, this means that there are $100$ defects to be expected. These defects have to be found during extensive testing and defects that are not identified and fixed can later surface during operation and cause missions to fail.
 
 In fact, software errors have already caused many space missions to go awry. A 2010 study on recent catastrophic accidents [@catastrophic] named six space missions that failed due to faulty software. Table \\ref{tab:mislo} summarizes the missions and the cause for their loss.
 
-Table: Space Mission losses due to faulty Software\\label{tab:mislo}
+Table: Space Mission Losses due to Faulty Software\\label{tab:mislo}
 
 ------------------------------------------------------------------
 Mission                         Cause of Failure
@@ -78,7 +78,7 @@ Occurring themes in these mission losses are a lack of testing and errors in ada
 
 The increasing demands on the software by more complex missions drive its growth. The bigger software gets, the harder it is to maintain and test. As there is now slowdown in the rise of complexity to be expected, better ways to manage it are needed.
 
-## Managing software complexity through higher-level programming languages
+## Managing Software Complexity through Higher-Level Programming Languages
 
 Programming languages are tools to solve problems. Different problems require different tools and the large number of existing, and also used, languages provide ample resources to find one that fits the task at hand.
 
@@ -88,7 +88,7 @@ These higher-level languages allow for quicker and easier development on the cos
 
 The Python programming language is explicitly designed to aid readability and it has therefore the potential to address the rising complexity of space software systems simply by being easy to use. Better readability makes it easier for programmers to understand the code written by others, or older code written by themselves, which eases development and maintenance.
 
-## Using CubeSats to drive adoption of new technologies
+## Using CubeSats to drive Adoption of New Technologies
 
 Although choosing the right language for the task is significant in managing complexity, the choice of language is often severely constricted. The choices are not made by project-based criteria, but organizational ones. The chosen languages are the ones that “have always been used”, that “everyone else uses”, that are already “available for the development system” or that are required in order to “satisfy contractual obligations” [@howatt].
 

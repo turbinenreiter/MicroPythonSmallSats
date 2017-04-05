@@ -1,4 +1,4 @@
-How can the suitability of a programming language and its implementation for space application be evaluated?
+How can the Suitability of a Programming Language and its Implementation for Space Applications be evaluated?
 ----------------------------------------------------------
 
 The method I propose in this thesis is a practical one:
@@ -21,7 +21,7 @@ Can MicroPython be used on CubeSats?
 
 MicroPython enables the use of Python in constrained systems and can thereby potentially bring the ease of use of this language to space computing. The example implementations showed that MicroPython can meet the needs of a software project for a CubeSat. The possibility to write libraries for MicroPython in C, and the facilities to interface with C data structures allow to integrate both languages in a common system, enabling the developer to facilitate each languages strengths and compensate their respective weaknesses. However, this interoperability still has some problems, not in function, but in usability: the lack of documentation of the internal C API aggravates the development of custom modules. Furthermore, the need for two separate definitions of data structures to be shared across the language's poses a possible error source. Both issues can and should be addressed in further work.
 
-What are the benefits and drawbacks of using MicroPython on CubeSats?
+What are the Benefits and Drawbacks of using MicroPython on CubeSats?
 ---------------------------------------------------------------------
 
 The benefits of using Python in space are tied to its focus on readability, which can help avoiding programming errors by increasing the code quality. The faster development speed the language enables can also help to more effectively use development resources. Especially in early stages, when systems are prototyped, this speed can help to create proof-of-concepts earlier and free time for additional design iterations. It would also allow more members of the development team to participate in software development. As an example, at the moment the control engineer would develop the control algorithms using tools tailored for engineers, like Matlab and Labview. Later, a software developer re-implements these algorithms in a language that can run on the target hardware, typically C/C++. Using MicroPython would allow the control engineer to directly work on the target hardware in a language that is as usable as the prior tools. The software developer then could focus on ensuring a stable framework, improving the code quality and rewrite only the performance critical parts in a lower-level language.

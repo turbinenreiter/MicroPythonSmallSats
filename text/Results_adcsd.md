@@ -32,7 +32,7 @@ In its current form the C implementation of the daemon results in a binary with 
 
 Table \\ref{tab:scd} shows size and complexity measures of the two examples.
 
-Table: Size and complexity comparison of the \\gls{ADCS} Daemon \\label{tab:scd}
+Table: Size and Complexity Comparison of the \\gls{ADCS} Daemon \\label{tab:scd}
 
 Language    Filename          LOC    Number of Tokens       CC
 ----------  --------------  -----  ------------------  -------

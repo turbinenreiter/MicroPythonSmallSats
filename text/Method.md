@@ -76,4 +76,4 @@ Example Implementations
 
 Different examples are taken from the MOVE-II source code and are re-implemented in Python. The two implementations are then compared in terms of complexity, error rate and performance. In cases where a missing library has to be implemented, the workload of doing so is also analyzed. Furthermore, the creation of performance optimized libraries for Python which are written in C is explored.
 
-To measure code metrics the Lizard tool was used [@lizard]. Among other languages, it supports analysis of C/C++ as well as Python source code. It provides measurements of \\gls{LOC} as well as \\gls{CC}.
+To measure code metrics the Lizard tool was used [@lizard]. Among other languages, it supports analysis of C/C++ as well as Python source code. It provides measurements of \\gls{LOC}, number of tokes and \\gls{CC}. While it doesn't provide more detailed \\gls{HCM} values, it is the only available tool supporting all needed languages. This allows using the same toll for all implementations, ensuring consistency between the measurements.
