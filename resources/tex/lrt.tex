@@ -29,6 +29,7 @@ $endfor$
 $if(tables)$
 \usepackage{longtable,booktabs}
 % Fix footnotes in tables (requires footnote package)
+\def\arraystretch{2}
 \IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
 $endif$
 
