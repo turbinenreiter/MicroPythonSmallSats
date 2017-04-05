@@ -3,7 +3,7 @@ This chapters details the background and theoretical foundation of this work. It
 The Python Programming Language and the MicroPython Implementation
 ------------------------------------------------------------------
 
-Python is an interpreted, object-oriented, high-level programming language with dynamic semantics created by Guido van Rossum. It features high-level data structures and dynamic typing, which makes it attractive for rapid development and as scripting or glue language to connect existing software components. Python’s syntax is designed to aid readability, making it easy to learn and reducing the cost of software maintenance. It supports modules and packages, which encourages program modularity and code reuse [@py]. The Python interpreter and the extensive standard library are released under the Python Software Foundation License, a BSD-style permissive free software license compatible with the GNU General Public License [@pylic].
+Python is an interpreted, object-oriented, high-level programming language with dynamic semantics created by Guido van Rossum. It features high-level data structures and dynamic typing, which makes it attractive for rapid development, and as scripting or glue language to connect existing software components. Python’s syntax is designed to aid readability, making it easy to learn and reducing the cost of software maintenance. It supports modules and packages, which encourages program modularity and code reuse [@py]. The Python interpreter and the extensive standard library are released under the Python Software Foundation License, a BSD-style permissive free software license compatible with the GNU General Public License [@pylic].
 
 The reference implementation of this language is called CPython. It is an interpreter and itself written in C. Other implementations with different goals exist, for example Jython, written in Java to target the Java virtual machine, or PyPy, written in a subset of Python and aimed at improving performance. MicroPython is an implementation of Python for microcontrollers and constrained systems, created by Damien George. It aims to be lean and efficient and includes only a small subset of the standard library [@upy]. The source code is published under the permissive MIT license.
 
@@ -13,7 +13,7 @@ The MicroPython port for microcontroller architectures has an even lower storage
 
 The \\gls{ESA} project of porting MicroPython to the LEON platform performed by George Robotics Ltd. [@ESAupy] has shown that the implementation can run on hardware designed for space. During this project, several improvements were made that further aid the suitability of MicroPython for space applications:
 
-* the separation of bytecode-compiler and interpreter, including the creation of a MicroPython cross compiler that allows to compile MicroPython code on a developer machine that can be deployed on the target machine
+* the separation of bytecode-compiler and interpreter, including the creation of a MicroPython cross compiler, that allows to compile MicroPython code on a developer machine, where the resulting byte-code can be deployed on the target machine
 * optimizations to reduce the use of the dynamic heap memory, allowing to run programs with a locked heap to ensure a program is deterministic
 * integration of MicroPython with RTEMS, a \\gls{RTOS} used by \\gls{ESA}
 
