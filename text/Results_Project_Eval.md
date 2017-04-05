@@ -14,15 +14,15 @@ The first step in the project-based language evaluation is the definition of the
 
 #. The language enables creation of programs with a small storage footprint.
 
-    The hardware used on the CubeSat has limited storage space. The radiation environment in orbit negatively affects the storage and puts additional requirements on it.
+    The hardware used on the CubeSat has limited storage space: one Gb standard storage, a 1.5 GB SpaceVault and four Mb of \\gls{SPI} flash. The radiation environment in orbit negatively affects the storage and puts additional requirements on it. The SpaceVault is special memory hardened against this radiation.
 
 #. The language enables creation of programs with a small memory footprint.
 
-    The hardware used on the CubeSat has limited memory. The memory is also affected by radiation.
+    The hardware used on the CubeSat has a limited memory of 512 Mb. The memory is also affected by radiation.
 
 #. The language enables creation of efficient programs.
 
-    The CubeSat has limited processing power, both as a result of limited battery power as well as thermal constraints: the lack of cooling thermally limits the processor speed.
+    The CubeSat has limited processing power, both as a result of limited battery power as well as thermal constraints: the lack of cooling thermally limits the processor speed. The processor uses a Frequency of 400 MHz.
 
 #. The language enables creation of programs that can be updated using small, incremental updates.
 
@@ -46,11 +46,11 @@ The first step in the project-based language evaluation is the definition of the
 
 #. The language provides quick and easy means to parse data.
 
-    The program has to log sensor data to files as well as read the data back from the file to analyze it.
+    The program has to log sensor data read via \\gls{SPI} to files as well as read the data back from the file to analyze it.
 
 #. The language provides quick and easy means to handle strings.
 
-    The program has to handle parameter updates that come in the form of strings. One example are \\glspl{TLE} which contain orbit information.
+    The program has to handle parameter updates that come in the form of strings. One example are \\glspl{TLE} containing orbit information. These \\glspl{TLE} have a standardized format which has to be parsed into the correct data fields.
 
 #. The language provides quick and easy means to handle C-structs.
 

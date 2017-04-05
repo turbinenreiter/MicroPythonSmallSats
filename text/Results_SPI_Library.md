@@ -22,7 +22,7 @@ The data held by the ```control``` object can now be accessed in two different w
 1
 ```
 
-Accessing the raw bytes allows to easily send and receive data via SPI. The SPI Master as well as the SPI slave device both have a data structure for the SPI transfer. For example, the structure on the Master that controls the function of the Slave is called ```control```, the structure on the Slave that is used to transfer sensor data back to the Master is called ```data```.
+Accessing the raw bytes allows to easily send and receive data via SPI. The SPI Master as well as the SPI slave device both have a data structure for the SPI transfer. For example, the structure on the Master that controls the function of the Slave is called ```control```, the structure on the Slave used to transfer sensor data back to the Master is called ```data```.
 On the Master, the ```control``` structure is updated with the information for the Slave, for example the ```mode``` is set to 1. Then, using the ```send_recv``` command, the bytes of the ```control``` structure are sent to the Slave, while the bytes of the ```data``` structure are returned back. Now both structures on both devices contain the same data. The Slave can use the ```mode``` information to switch its operation to the desired mode, and the Master can access the sensor data of the Slave.
 Both structures have to have the same length in bytes. When the structures they contain do not have the same length, the length in bytes of the longer one is used for both structures. The unused bytes at the end of the shorter structure contain zeros and do not effect the system in any way.
 

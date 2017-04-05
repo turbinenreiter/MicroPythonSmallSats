@@ -1,4 +1,4 @@
-This chapters details the background and theoretical foundation of this work. It first describes the Python programming language and the MicroPython implementation. Then, existing programming language evaluation strategies are described and their applicability is analyzed. Finally, code metrics that can be used to compare a source codes complexity are introduced.
+This chapters details the background and theoretical foundation of this work. It first describes the Python programming language and the MicroPython implementation. Then, existing programming language evaluation strategies are described and their applicability is analyzed. Finally, code metrics which can be used to compare a source codes complexity are introduced.
 
 The Python Programming Language and the MicroPython Implementation
 ------------------------------------------------------------------
@@ -11,9 +11,9 @@ The CPython interpreter for the UNIX platform has a size of about 4.7 MB, the Mi
 
 The MicroPython port for microcontroller architectures has an even lower storage and memory footprint: 256 kB of storage and 32 kB of memory are sufficient to run non-trivial programs.
 
-The \\gls{ESA} project of porting MicroPython to the LEON platform performed by George Robotics Ltd. [@ESAupy] has shown that the implementation can run on hardware designed for space. During this project, several improvements were made that further aid the suitability of MicroPython for space applications:
+The \\gls{ESA} project of porting MicroPython to the LEON platform performed by George Robotics Ltd. [@ESAupy] has shown that the implementation can run on hardware designed for space. During this project, several improvements were made to further aid the suitability of MicroPython for space applications:
 
-* the separation of bytecode-compiler and interpreter, including the creation of a MicroPython cross compiler, that allows to compile MicroPython code on a developer machine, where the resulting byte-code can be deployed on the target machine
+* the separation of bytecode-compiler and interpreter, including the creation of a MicroPython cross compiler, allowing to compile MicroPython code on a developer machine, where the resulting byte-code can be deployed on the target machine
 * optimizations to reduce the use of the dynamic heap memory, allowing to run programs with a locked heap to ensure a program is deterministic
 * integration of MicroPython with RTEMS, a \\gls{RTOS} used by \\gls{ESA}
 
@@ -69,7 +69,7 @@ The following characteristics contribute to a language's readability:
     When adding two lists with a +, the two lists get concatenated. When the user is working on vector mathematics, this can be a pitfall, as one might expect a vector addition instead.
 
 * __Orthogonality__  
-    Orthogonality means that a language has a small number of primitive concepts, that can be combined in a defined way to form the program. Every possible combination is allowed and meaningful. The combinations allow a finite set of primitives to form any imaginable program.
+    Orthogonality means that a language has a small number of primitive concepts, which can be combined in a defined way to form the program. Every possible combination is allowed and meaningful. The combinations allow a finite set of primitives to form any imaginable program.
     The term orthogonality is borrowed from geometry, where it describes a right angle between two vectors. In computer science, the term is used to describe the property of a language primitive to have no side effects. Two language primitives are considered orthogonal when combining them does not change their behavior.
 
     As an example, we use the primitives ```list```, ```+```, ```for```, ```in``` to implement a vector addition.
@@ -82,7 +82,7 @@ The following characteristics contribute to a language's readability:
     The ```for op in [1, 2, 3]``` construct creates a loop in which the variable ```op``` is set to the n-th element of the list on the n-th iteration through the loop. In this context, orthogonality is given when the following conditions are true.
 
     * the ```list``` that is iterated over is not changed by doing so
-    * the ```for _ in``` construct behaves the same for any data type it is used on, meaning that it does not change its behavior according to it
+    * the ```for _ in``` construct behaves the same for any data type it is used on, meaning it does not change its behavior according to it
 
     The first condition is true for our example. The second, however, shows the limits of the concept: iterating over a data type is only sensible when the data type is a congregation of values. Iterating over a single value does not work and is not allowed. This means that orthogonality as a mathematical concept can be proven or disproven for a programming language, but in a computer science context it is not a binary decision, but a scale.
 
@@ -120,18 +120,13 @@ The following characteristics contribute to a language's readability:
     }
     ~~~
 
-    Note that the visible indentation has no meaning, only the braces are relevant. The indentation is done to aid readability, but could be omitted. The idea of using indentation instead of braces came from the realization that the first thing programmers do in languages that use braces is to define a style guide asking all developers to adhere to a certain style of indentation.
+    Note that the visible indentation has no meaning, only the braces are relevant. The indentation is done to aid readability, but could be omitted. The idea of using indentation instead of braces came from the realization, that the first thing programmers do in languages using braces is to define a style guide, asking all developers to adhere to a certain style of indentation.
 
     For syntax design, it is also important to realize that personal taste can play a significant role. The above example "indentation versus braces" is a perfect testament to that. Programmers using braced languages sometimes show huge distaste against indented languages, all the while they perfectly indent their braced code. Meanwhile, users of indented languages dislike braces although they do nothing but add more visual clues to the indentation they already perform, exactly because of the emphasis on the importance of visual clues. The list of objective arguments is tremendously shorter than any typical discussion of the concepts between programmers.
 
 ### Writeability
 
-Writeability describes the ease with which a programming language can
-be used to create, or *write*, a program that solves a specific problem.
-Lesser cognitive load inflicted on the developer by getting the syntax
-right allows to concentrate on the correctness of the program logic.
-Abstraction and expressiveness also lessen the amount of code to be
-written and reviewed.
+Writeability describes the ease with which a programming language can be used to create, or *write*, a program to solve a specific problem. Lesser cognitive load inflicted on the developer by getting the syntax right allows to concentrate on the correctness of the program logic. Abstraction and expressiveness also lessen the amount of code to be written and reviewed.
 
 * __Simplicity and Orthogonality__  
 A language's large number of complex constructs can lead to misuse, as the programmer may lack familiarity with all of them. A smaller number of primitives and rules of combining them allows for solving of complex problems without the need to learn a large number of constructs. However, orthogonality can also lead to undetected programming errors, as it may allow for absurd combinations.
@@ -140,15 +135,13 @@ A language's large number of complex constructs can lead to misuse, as the progr
 Abstraction allows the use of complicated operations while many of the details are ignored. For example, a complex algorithm can be implemented once and then reused in different parts of the code by simply being called with the right arguments. The person who uses the algorithm does not necessarily have to know, or remember, its inner workings.
 
 * __Expressiveness__  
-Expressiveness means the existence of powerful operators that allow for convenient specification of computations. This allows for short programs to have a lot of meaning. The reduced code length benefits maintainability, however expressiveness is related to implicity and explicity. Implicity can shorten a programs source code, but be less readable than the explicit counterpart. This target conflict is further detailed in Section \\ref{sec:metrics} that describes the software metric used to measure code length as well as complexity.
+Expressiveness means the existence of powerful operators that allow for convenient specification of computations. This allows for short programs to have a lot of meaning. The reduced code length benefits maintainability, however expressiveness is related to implicity and explicity. Implicity can shorten a programs source code, but be less readable than the explicit counterpart. This target conflict is further detailed in Section \\ref{sec:metrics}, which describes the software metric used to measure code length as well as complexity.
 
 
 ### Reliability
 
 Reliability describes a program's ability to perform its function
-under all conditions. Exception handling helps to create programs that
-can recover from unforeseen occurrences, type checking ensures the
-validity of the input and interfaces.
+under all conditions. A language can support a developer in creating reliable programs by providing means to handle unforeseen occurrences, like exception handling, or by disallowing error prone practices, like aliasing.
 
 * __Type Checking__  
 Checking for type errors is an important method to avoid program crashes. Checking for type errors before the program is run avoids that those errors can happen later. If this is not done, type errors have to be caught and handled during the programs operation, otherwise the program crashes.
