@@ -15,15 +15,15 @@ In this chapter the motivation for this study is detailed by taking a closer loo
 
 ## Rising Software Complexity and Software Errors leading to Mission Failure
 
-In 2009, NASA published a Study on Flight Software Complexity [@Dvorak] to address the risks associated with the growth of size and complexity of flight software for their space missions. It analyzed past missions and found software size to be growing approximately by a factor of 10 every 10 years. More software also means more possible errors. The study estimates a defect rate of $1$ defect per $10,000$ lines of code even for exceptionally good software development processes. With the size of the software for NASA's Orion project approaching 1 million lines of code, this means that there are $100$ defects to be expected. These defects have to be found during extensive testing and defects that are not identified and fixed can later surface during operation and cause missions to fail.
+In 2009, NASA published a Study on Flight Software Complexity [@Dvorak] to address the risks associated with the growth of size and complexity of flight software for their space missions. It analyzed past missions and found software size to be growing approximately by a factor of ten every ten years. More software also means more possible errors. The study estimates a defect rate of one defect per 10,000 lines of code even for exceptionally good software development processes. With the size of the software for NASA's Orion project approaching one million lines of code, this means that there are 100 defects to be expected. These defects have to be found during extensive testing and defects that are not identified and fixed can later surface during operation and cause missions to fail.
 
-In fact, software errors have already caused many space missions to go awry. A 2010 study on recent catastrophic accidents [@catastrophic] named six space missions that failed due to faulty software. Table \\ref{tab:mislo} summarizes the missions and the cause for their loss.
+In fact, software errors have already caused many space missions to fail catastrophically or partially. A 2010 study on recent catastrophic accidents [@catastrophic] named six space missions that failed due to faulty software. Table \\ref{tab:mislo} summarizes the missions and the cause for their loss.
 
 Table: Space Mission Losses due to Faulty Software\\label{tab:mislo}
 
-------------------------------------------------------------------
+--------------------------------------------------------------------
 Mission                         Cause of Failure
-------------------------------- ----------------------------------
+------------------------------- ------------------------------------
 Demonstration of Autonomous     Unintended software resets caused 
 Rendezvous Technology (DART)    fuel depletion and erroneous 
                                 velocity measuremnts. The error 
@@ -38,7 +38,7 @@ Mars Polar Lander               A faulty sensor caused the lander
                                 flight configuration.
 
 Mars Climate Orbiter            The orbiter navigated to an orbit 
-                                that was to low and entered Mars' 
+                                that was too low and entered Mars' 
                                 atmosphere at an steep angle. The 
                                 navigation error came from the 
                                 software using inconsistent units.
@@ -82,9 +82,9 @@ The increasing demands on the software by more complex missions drive its growth
 
 Programming languages are tools to solve problems. Different problems require different tools and the large number of existing, and also used, languages provide ample resources to find one that fits the task at hand.
 
-Programming languages vary in the level of abstraction from the hardware they provide. Low-level languages, like Assembly, provide no abstraction from the machine level at all while high-level languages, like C, provide strong abstraction. However, for high-level languages the grade of abstraction also varies. In the field of high-level languages, C is on the lowest level, with dynamic languages like Python being on the the higher end.
+Programming languages vary in the level of abstraction from the hardware they provide. Low-level languages, like Assembly, provide no abstraction from the machine level at all while high-level languages, like C, provide strong abstraction. However, for high-level languages the grade of abstraction also varies. In the field of high-level languages, C is on the lowest level, with dynamic languages like Python being on the higher end.
 
-These higher-level languages allow for quicker and easier development on the cost of execution speed. They are easier in use and more forgiving to newcomers. For example, C still requires manual memory management from the programmer, while higher-level languages have automated memory management. While this creates overhead that leads to slower programs, it also guards against common programming errors. These languages also typically are more expressive than their lower level counterparts. That means that the same functionality can be expressed in shorter programs, which reduces the rate of errors.
+These higher-level languages allow quicker and easier development on the cost of execution speed. They are easier in use and more forgiving to newcomers. For example, C still requires manual memory management from the programmer, while higher-level languages have automated memory management. While this creates overhead that leads to slower programs, it also guards against common programming errors. These languages are also typically more expressive than their lower level counterparts. This means the same functionality can be expressed in shorter programs, which reduces the rate of errors.
 
 The Python programming language is explicitly designed to aid readability and it has therefore the potential to address the rising complexity of space software systems simply by being easy to use. Better readability makes it easier for programmers to understand the code written by others, or older code written by themselves, which eases development and maintenance.
 
@@ -92,7 +92,7 @@ The Python programming language is explicitly designed to aid readability and it
 
 Although choosing the right language for the task is significant in managing complexity, the choice of language is often severely constricted. The choices are not made by project-based criteria, but organizational ones. The chosen languages are the ones that “have always been used”, that “everyone else uses”, that are already “available for the development system” or that are required in order to “satisfy contractual obligations” [@howatt].
 
-Because of the special requirements for space systems, and the conservative approach that is common in the space industry, only a small set of languages are actively used. Developers default to known and proven languages for expensive and critical projects, leaving little room for experimentation. This approach slows adoption of new languages and tools, which means that there is possibly a lot of untapped potential to improve the developers' workflow.
+Because of the special requirements for space systems, and the conservative approach that is common in the space industry, only a small set of languages are actively used. Developers default to known and proven languages for expensive and critical projects, leaving little room for experimentation. This approach slows down adoption of new languages and tools, which means there is possibly a lot of untapped potential to improve the developers' workflow.
 CubeSats can provide a way of overcoming the limitations of this conservative approach. They are small, low-cost satellites with standardized dimensions, which enables them to be launched as secondary payloads alongside bigger missions. This severely lowers the launch cost and total cost of getting a satellite to orbit. For innovators, CubeSats are an ideal platform to push new technologies and ideas. Once proven space-ready by a CubeSats mission, a new technology is ready to be adopted in more critical missions.
 
 \\ \\
@@ -125,17 +125,12 @@ JavaScript        Espruino           few              via Espruino              
 Lua               eLua               few              via eLua                    stable project, good support for few platforms
 ------------------------------------------------------------------------
 
-On this short list, there is only one family of languages with widespread availability and a usable \\gls{HAL}: C, C++ and Arduino, which is a subset of C++. Some smaller projects achieve good availability by piggybacking on the Arduino ecosystem, but suffer from its beginner oriented limitations. Other languages can target microcontrollers by the virtue of their compiler suites, which provide targets for microcontroller architectures, but often lack a \\gls{HAL}.
-The MicroPython, Espruino and eLua projects represent a different approach. These project implement small interpreters of the respective languages that can run on microcontrollers. They also provide a \\gls{HAL} for the targeted devices. This means that the number of supported platforms is small, but also, that the provided \\gls{HAL} is consistent across the platforms. In doing so, these projects transcend from being language implementations to being frameworks, and even intersecting with functionality typically provided by \\glspl{RTOS}.
+On this list, there is only one family of languages with widespread availability and a usable \\gls{HAL}: C, C++ and Arduino, which is a subset of C++. Some smaller projects achieve good availability by piggybacking on the Arduino ecosystem, but suffer from its beginner oriented limitations. Other languages can target microcontrollers by the virtue of their compiler suites, which provide targets for microcontroller architectures, but often lack a \\gls{HAL}.
+The MicroPython, Espruino and eLua projects represent a different approach. These projects implement small interpreters of the respective languages that can run on microcontrollers. They also provide a \\gls{HAL} for the targeted devices. This means that the number of supported platforms is small, but also, that the provided \\gls{HAL} is consistent across the platforms. In doing so, these projects transcend from being language implementations to being frameworks, and even intersecting with functionality typically provided by \\glspl{RTOS}.
 
-MicroPython is such a new technology that can potentially be useful for space applications. It is an implementation of the Python programming language designed for constrained systems, like those common in space computing.
+MicroPython can potentially be useful for space applications. It is an implementation of the Python programming language designed for constrained systems, like those common in space computing.
 
-First steps towards the use of MicroPython in space have already been
-undertaken by an ESA project, motivated by a desire to write the
-high-level application software in a language more suited to the
-application layer, meaning a high-level language like Python. Compared
-to C, Python enables higher productivity, more expressiveness,
-higher-level language constructs and inherent language safety. Furthermore, for high-level applications the possibility for updating the software easily and with little risk is desired. This can be done by patching in compiled languages like C, where the complete software is recompiled and either a patch, meaning only the differing parts of the compiled software, is deployed or the software is completely replaced by a new version. Patching poses its own set of risks and is therefore avoided when possible. The use of MicroPython would better allow this flexibility. Instead of recompiling the complete software, only a script that controls the lower level functionality has to be changed [@ESAupy].
+First steps towards the use of MicroPython in space have already been undertaken by an \\gls{ESA} project, motivated by a desire to write the high-level application software in a language more suited to the application layer, meaning a high-level language like Python. Compared to C, Python enables higher productivity, more expressiveness, higher-level language constructs and inherent language safety. Furthermore, for high-level applications the possibility for updating the software easily and with little risk is desired. This can be done by patching in compiled languages like C, where the complete software is recompiled and either a patch, meaning only the differing parts of the compiled software, is deployed or the software is completely replaced by a new version. Patching poses its own set of risks and is therefore avoided when possible. The use of MicroPython would better allow this flexibility. Instead of recompiling the complete software, only a script that controls the lower level functionality has to be changed [@ESAupy].
 
 With the novel MicroPython implementation enabling Python to be used on constrained systems, its potential benefits and possibilities call for a detailed evaluation. Given ESA's work on the technical aspects of the implementation, I want to focus more on usability and a practical approach embedded within the MOVE-II CubeSat project.
 
