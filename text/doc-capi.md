@@ -155,4 +155,4 @@ mp_obj_list_append(mp_obj_t list_name, mp_obj_t new_entry)
 
 \\ \\
 
-The functions described here are not all available functions. More can be found in ```py/obj.h```. A useful tool to learn how functions are used is ```grep```. It allows to search the codebase for occurrences of a certain string, for example a function name. From the examples found that way, it can be learned how to use them. Friendly people willing to help can be found at ```forums.micropython.org```, where also already many answers can be found in the archive.
+The functions described here are not all available functions. More can be found in ```py/obj.h```. A useful tool to learn how functions are used is ```grep```. It allows to search the codebase for occurrences of a certain string, for example a function name. From the examples found that way, it can be learned how to use them. Friendly people willing to help can be found at ```forums.micropython.org```, where there is also already an archive with many answers.
