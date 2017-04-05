@@ -6,7 +6,7 @@ The first step in the project-based language evaluation is the definition of the
 
 #. The language enables creation of programs maintainable by changing developers.
 
-    Code should be developed in a way that it is usable not only by the original author, but also by others. This enables the reuse of software and ensures code doesn't get lost because the developer is not available anymore.
+    Code should be developed in a way that it is usable not only by the original author, but also by others. This enables the reuse of software and ensures code does not get lost because the developer is not available anymore.
 
 #. The language enables splitting tasks between multiple programmers.
 

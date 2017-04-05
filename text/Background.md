@@ -205,7 +205,7 @@ float value = 0;
 value = raw_value / 1024;
 ~~~
 
-The ```1024``` is a magic number, because we don't know what it is. The example can be rewritten to give the value an explicit name. Depending on whether this value would be constant or variable, this can be done in different ways: the one shown below assumes a constant that is hardcoded at compile time.
+The ```1024``` is a magic number, because we do not know what it is. The example can be rewritten to give the value an explicit name. Depending on whether this value would be constant or variable, this can be done in different ways: the one shown below assumes a constant that is hardcoded at compile time.
 
 ~~~{.c}
 #define RESOLUTION 1024
@@ -289,7 +289,7 @@ CC = e - n + 2 * p
 The same algorithm implemented in two different programming languages can have a different \\gls{CC} for both:
 
 * a more expressive language needs less statements, reducing the number of nodes
-* a dynamic language reduces the number of edges because it doesn't need logic to handle different data types
+* a dynamic language reduces the number of edges because it does not need logic to handle different data types
 
 A language's expressiveness is influenced by its number of keywords. More keywords enable it to provide more specialized functionality, eliminating the need to specialize by combining keywords. In this context, more keywords reduce complexity, which directly conflicts with the criterion of language simplicity.
 Like we did in the LOC section before, we again can trace this issue back to the issue of implicity versus explicity and expressiveness. Ultimately, a larger number of specialized keywords decrease complexity by implicity, while a smaller number of more orthogonal keywords increase readability by demanding explicity.
